@@ -32,7 +32,8 @@ class _HomePageState extends State<HomePage> {
           height: Utils.getHeight(context),
           child: Stack(
             children: [
-              Positioned(
+              AnimatedPositioned(
+                  duration: const Duration(milliseconds: 200),
                   left: uiModel.pointerPosition.dx,
                   top: uiModel.pointerPosition.dy,
                   child: Container(
@@ -40,7 +41,8 @@ class _HomePageState extends State<HomePage> {
                     height: 3,
                     color: Colors.white,
                   )),
-              Positioned(
+              AnimatedPositioned(
+                duration: Duration(milliseconds: 500),
                 left: Utils.getCursorMainScreenWithRangeW(
                     uiModel.pointerPosition.dx, context),
                 top: Utils.getCursorMainScreenWithRangeH(
