@@ -2,6 +2,23 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_circular_text/circular_text.dart';
 
+class DefaultCursor extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 200,
+      width: 200,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(100)),
+          border: Border.all(
+              width: 4,
+              color: Colors.black,
+              style: BorderStyle.solid)),
+    );
+  }
+
+}
+
 class HomeScreenCursor extends StatefulWidget {
   @override
   _HomeScreenCursorState createState() => _HomeScreenCursorState();
@@ -94,27 +111,6 @@ class _HomeScreenCursorState extends State<HomeScreenCursor>
                 position: CircularTextPosition.inside,
                 backgroundPaint: Paint()..color = Colors.transparent,
               ),
-              Align(
-                alignment: Alignment.center,
-                child: Container(
-                  height: 200,
-                  width: 200,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(100)),
-                      border: Border.all(
-                          width: 10,
-                          color: Colors.white,
-                          style: BorderStyle.solid)),
-                  child: Center(
-                      child: Text(
-                    "Hello",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 50,
-                        fontWeight: FontWeight.bold),
-                  )),
-                ),
-              )
             ],
           ),
         ));

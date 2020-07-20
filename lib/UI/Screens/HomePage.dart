@@ -5,10 +5,12 @@ import 'package:provider/provider.dart';
 import 'package:sahdeepsinghflutter/CORE/ProviderModel.dart';
 import 'package:sahdeepsinghflutter/CORE/Utils.dart';
 import 'package:flutter/src/rendering/mouse_cursor.dart';
+import 'package:sahdeepsinghflutter/UI/Others/CustomDrawer.dart';
 import 'package:sahdeepsinghflutter/UI/Others/HomeScreenCursor.dart';
 import 'dart:js' as js;
 
 class HomePage extends StatefulWidget {
+
   static const String TAG = "HomePage";
   static const String Route = "/";
 
@@ -17,10 +19,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final globalKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     final uiModel = Provider.of<UIModel>(context);
     return Scaffold(
+      key: globalKey,
+      endDrawer: CustomDrawer(),
       backgroundColor: Color(0xff000000),
       body: MouseRegion(
         cursor: SystemMouseCursors.none,
@@ -77,7 +83,9 @@ class _HomePageState extends State<HomePage> {
                 child: Padding(
                   padding: const EdgeInsets.all(18.0),
                   child: InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      globalKey.currentState.openEndDrawer();
+                    },
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Icon(

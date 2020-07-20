@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sahdeepsinghflutter/CORE/ProviderModel.dart';
 import 'package:sahdeepsinghflutter/UI/Screens/HomePage.dart';
+import 'package:sahdeepsinghflutter/UI/Screens/PageNotFound.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,8 +17,14 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         title: 'Sahdeep Singh',
+        theme: ThemeData(fontFamily: 'sharpgro'),
         routes: <String, WidgetBuilder>{
           HomePage.Route: (BuildContext context) => HomePage(),
+        },
+        onUnknownRoute: (settings) {
+          return MaterialPageRoute(
+              builder: (_) => PageNotFound(),
+              settings: RouteSettings(name: "404"));
         },
       ),
     );

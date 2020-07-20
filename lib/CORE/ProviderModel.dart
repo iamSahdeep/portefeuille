@@ -11,10 +11,18 @@ class UIModel extends ChangeNotifier {
   }
 
   ///Hover Effect Cursor
-  Offset pointerPosition = Offset(600,400);
+  Offset pointerPosition = Offset(600, 400);
 
   setPointerPosition(Offset da) {
     pointerPosition = da;
+    notifyListeners();
+  }
+
+  ///Hover on Drawer Items
+  int currentHoverItem = 0;
+
+  setCurrentHoverItem(int da) {
+    currentHoverItem = da;
     notifyListeners();
   }
 }
