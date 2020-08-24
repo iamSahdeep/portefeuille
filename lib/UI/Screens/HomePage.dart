@@ -106,12 +106,12 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: IconButton(
-                              icon: Icon(
+                          child: GestureDetector(
+                              child: Icon(
                                 FontAwesomeIcons.twitter,
                                 color: Colors.white,
                               ),
-                              onPressed: () {
+                              onTap: () {
                                 js.context.callMethod(
                                     "open", ["https://twitter.com/iamSahdeep"]);
                               }),
