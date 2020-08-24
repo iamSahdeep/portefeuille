@@ -1,16 +1,17 @@
+import 'dart:js' as js;
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/src/rendering/mouse_cursor.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:sahdeepsinghflutter/CORE/ProviderModel.dart';
 import 'package:sahdeepsinghflutter/CORE/Utils.dart';
-import 'package:flutter/src/rendering/mouse_cursor.dart';
 import 'package:sahdeepsinghflutter/UI/Others/CustomDrawer.dart';
 import 'package:sahdeepsinghflutter/UI/Others/HomeScreenCursor.dart';
-import 'dart:js' as js;
+import 'package:sahdeepsinghflutter/UI/Others/HoverableButton.dart';
 
 class HomePage extends StatefulWidget {
-
   static const String TAG = "HomePage";
   static const String Route = "/";
 
@@ -81,9 +82,11 @@ class _HomePageState extends State<HomePage> {
               Align(
                 alignment: Alignment.topRight,
                 child: Padding(
-                  padding: const EdgeInsets.all(18.0),
-                  child: InkWell(
-                    onTap: () {
+                  padding: const EdgeInsets.all(15.0),
+                  child: HoverableButton(
+                    width: 70,
+                    height: 70,
+                    onPressed: () {
                       globalKey.currentState.openEndDrawer();
                     },
                     child: Padding(
@@ -104,42 +107,42 @@ class _HomePageState extends State<HomePage> {
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: GestureDetector(
-                              child: Icon(
-                                FontAwesomeIcons.twitter,
-                                color: Colors.white,
-                              ),
-                              onTap: () {
-                                js.context.callMethod(
-                                    "open", ["https://twitter.com/iamSahdeep"]);
-                              }),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: IconButton(
-                              icon: Icon(
-                                FontAwesomeIcons.github,
-                                color: Colors.white,
-                              ),
-                              onPressed: () {
-                                js.context.callMethod(
-                                    "open", ["https://github.com/iamSahdeep"]);
-                              }),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: IconButton(
-                              icon: Icon(
-                                FontAwesomeIcons.linkedin,
-                                color: Colors.white,
-                              ),
-                              onPressed: () {
-                                js.context.callMethod("open",
-                                    ["https://www.linkedin.com/in/iamsahdeep"]);
-                              }),
-                        ),
+                        HoverableButton(
+                            height: 40,
+                            width: 60,
+                            child: Icon(
+                              FontAwesomeIcons.twitter,
+                              color: Colors.white,
+                              size: 25,
+                            ),
+                            onPressed: () {
+                              js.context.callMethod(
+                                  "open", ["https://twitter.com/iamSahdeep"]);
+                            }),
+                        HoverableButton(
+                            height: 40,
+                            width: 60,
+                            child: Icon(
+                              FontAwesomeIcons.github,
+                              color: Colors.white,
+                              size: 25,
+                            ),
+                            onPressed: () {
+                              js.context.callMethod(
+                                  "open", ["https://github.com/iamSahdeep"]);
+                            }),
+                        HoverableButton(
+                            height: 40,
+                            width: 60,
+                            child: Icon(
+                              FontAwesomeIcons.linkedin,
+                              color: Colors.white,
+                              size: 25,
+                            ),
+                            onPressed: () {
+                              js.context.callMethod("open",
+                                  ["https://www.linkedin.com/in/iamsahdeep"]);
+                            }),
                       ],
                     )),
               ),
@@ -148,6 +151,7 @@ class _HomePageState extends State<HomePage> {
                 child: Padding(
                     padding: const EdgeInsets.all(28.0),
                     child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.end,
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Text(
@@ -158,8 +162,10 @@ class _HomePageState extends State<HomePage> {
                           "Build with ❤ and ",
                           style: TextStyle(color: Colors.white, fontSize: 17),
                         ),
-                        InkWell(
-                          onTap: () {
+                        HoverableButton(
+                          height: 30,
+                          width: 70,
+                          onPressed: () {
                             js.context.callMethod(
                                 "open", ["https://github.com/flutter/flutter"]);
                           },

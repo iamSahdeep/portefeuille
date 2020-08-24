@@ -1,12 +1,13 @@
+import 'dart:js' as js;
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:sahdeepsinghflutter/CORE/ProviderModel.dart';
 import 'package:sahdeepsinghflutter/CORE/Utils.dart';
-import 'dart:js' as js;
-
 import 'package:sahdeepsinghflutter/UI/Others/DefaultCursor.dart';
+import 'package:sahdeepsinghflutter/UI/Others/HoverableButton.dart';
 
 class CustomDrawer extends StatefulWidget {
   @override
@@ -22,20 +23,21 @@ class _CustomDrawerState extends State<CustomDrawer> {
       onHover: (event) {
         uiModel.setPointerPosition(event.position);
       },
-      child: Container(
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 300),
         color: Color(0xffFEC33F),
         height: Utils.getHeight(context),
         width: Utils.getWidth(context),
         child: Stack(
           children: [
             AnimatedPositioned(
-              duration: Duration(milliseconds: 300),
+              duration: const Duration(milliseconds: 300),
               left: uiModel.pointerPosition.dx - 100,
               top: uiModel.pointerPosition.dy - 100,
               child: DefaultCursor(),
             ),
             AnimatedPositioned(
-              duration: Duration(milliseconds: 100),
+              duration: const Duration(milliseconds: 100),
               left: uiModel.pointerPosition.dx,
               top: uiModel.pointerPosition.dy,
               child: Container(
@@ -48,7 +50,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
               alignment: Alignment.topLeft,
               child: Padding(
                 padding: const EdgeInsets.all(18.0),
-                child: InkWell(
+                child: GestureDetector(
                   onTap: () {
                     Navigator.pop(context);
                   },
@@ -67,8 +69,10 @@ class _CustomDrawerState extends State<CustomDrawer> {
               alignment: Alignment.topRight,
               child: Padding(
                 padding: const EdgeInsets.all(18.0),
-                child: InkWell(
-                  onTap: () {
+                child: HoverableButton(
+                  height: 70,
+                  width: 70,
+                  onPressed: () {
                     Navigator.pop(context);
                   },
                   child: Padding(
@@ -86,72 +90,96 @@ class _CustomDrawerState extends State<CustomDrawer> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  InkWell(
-                    onTap: () {},
-                    onHover: (v) {
-                      uiModel.setCurrentHoverItem(v ? 1 : 0);
+                  MouseRegion(
+                    onExit: (_) {
+                      uiModel.setCurrentHoverItem(0);
                     },
-                    child: AnimatedDefaultTextStyle(
-                      duration: Duration(milliseconds: 200),
-                      child: Text("About".toUpperCase()),
-                      style: TextStyle(
-                          color: uiModel.currentHoverItem == 1
-                              ? Colors.white
-                              : Colors.black,
-                          fontWeight: FontWeight.w900,
-                          fontSize: Utils.getHeight(context) /
-                              (uiModel.currentHoverItem == 1 ? 7 : 8)),
+                    onEnter: (_) {
+                      uiModel.setCurrentHoverItem(1);
+                    },
+                    cursor: SystemMouseCursors.none,
+                    child: GestureDetector(
+                      onTap: () {},
+                      child: AnimatedDefaultTextStyle(
+                        duration: Duration(milliseconds: 200),
+                        child: Text("About".toUpperCase()),
+                        style: TextStyle(
+                            color: uiModel.currentHoverItem == 1
+                                ? Colors.white
+                                : Colors.black,
+                            fontWeight: FontWeight.w900,
+                            fontSize: Utils.getHeight(context) /
+                                (uiModel.currentHoverItem == 1 ? 7 : 8)),
+                      ),
                     ),
                   ),
-                  InkWell(
-                    onTap: () {},
-                    onHover: (v) {
-                      uiModel.setCurrentHoverItem(v ? 2 : 0);
+                  MouseRegion(
+                    onExit: (_) {
+                      uiModel.setCurrentHoverItem(0);
                     },
-                    child: AnimatedDefaultTextStyle(
-                      duration: Duration(milliseconds: 200),
-                      child: Text("Projects".toUpperCase()),
-                      style: TextStyle(
-                          color: uiModel.currentHoverItem == 2
-                              ? Colors.white
-                              : Colors.black,
-                          fontWeight: FontWeight.w900,
-                          fontSize: Utils.getHeight(context) /
-                              (uiModel.currentHoverItem == 2 ? 7 : 8)),
+                    onEnter: (_) {
+                      uiModel.setCurrentHoverItem(2);
+                    },
+                    cursor: SystemMouseCursors.none,
+                    child: GestureDetector(
+                      onTap: () {},
+                      child: AnimatedDefaultTextStyle(
+                        duration: Duration(milliseconds: 200),
+                        child: Text("Projects".toUpperCase()),
+                        style: TextStyle(
+                            color: uiModel.currentHoverItem == 2
+                                ? Colors.white
+                                : Colors.black,
+                            fontWeight: FontWeight.w900,
+                            fontSize: Utils.getHeight(context) /
+                                (uiModel.currentHoverItem == 2 ? 7 : 8)),
+                      ),
                     ),
                   ),
-                  InkWell(
-                    onTap: () {},
-                    onHover: (v) {
-                      uiModel.setCurrentHoverItem(v ? 3 : 0);
+                  MouseRegion(
+                    onExit: (_) {
+                      uiModel.setCurrentHoverItem(0);
                     },
-                    child: AnimatedDefaultTextStyle(
-                      duration: Duration(milliseconds: 200),
-                      child: Text("Blogs".toUpperCase()),
-                      style: TextStyle(
-                          color: uiModel.currentHoverItem == 3
-                              ? Colors.white
-                              : Colors.black,
-                          fontWeight: FontWeight.w900,
-                          fontSize: Utils.getHeight(context) /
-                              (uiModel.currentHoverItem == 3 ? 7 : 8)),
+                    onEnter: (_) {
+                      uiModel.setCurrentHoverItem(3);
+                    },
+                    cursor: SystemMouseCursors.none,
+                    child: GestureDetector(
+                      onTap: () {},
+                      child: AnimatedDefaultTextStyle(
+                        duration: Duration(milliseconds: 200),
+                        child: Text("Blogs".toUpperCase()),
+                        style: TextStyle(
+                            color: uiModel.currentHoverItem == 3
+                                ? Colors.white
+                                : Colors.black,
+                            fontWeight: FontWeight.w900,
+                            fontSize: Utils.getHeight(context) /
+                                (uiModel.currentHoverItem == 3 ? 7 : 8)),
+                      ),
                     ),
                   ),
-                  InkWell(
-                    onTap: () {},
-                    onHover: (v) {
-                      uiModel.setCurrentHoverItem(v ? 4 : 0);
+                  MouseRegion(
+                    onExit: (_) {
+                      uiModel.setCurrentHoverItem(0);
                     },
-                    child: AnimatedDefaultTextStyle(
-                      duration: Duration(milliseconds: 200),
-                      child: Text("Contact".toUpperCase()),
-                      style: TextStyle(
-                          color: uiModel.currentHoverItem == 4
-                              ? Colors.white
-                              : Colors.black,
-                          fontWeight: FontWeight.w900,
-                          fontSize: Utils.getHeight(context) /
-                              (uiModel.currentHoverItem == 4 ? 7 : 8)),
+                    onEnter: (_) {
+                      uiModel.setCurrentHoverItem(4);
+                    },
+                    cursor: SystemMouseCursors.none,
+                    child: GestureDetector(
+                      onTap: () {},
+                      child: AnimatedDefaultTextStyle(
+                        duration: Duration(milliseconds: 200),
+                        child: Text("Contact".toUpperCase()),
+                        style: TextStyle(
+                            color: uiModel.currentHoverItem == 4
+                                ? Colors.white
+                                : Colors.black,
+                            fontWeight: FontWeight.w900,
+                            fontSize: Utils.getHeight(context) /
+                                (uiModel.currentHoverItem == 4 ? 7 : 8)),
+                      ),
                     ),
                   ),
                 ],
@@ -165,9 +193,11 @@ class _CustomDrawerState extends State<CustomDrawer> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: IconButton(
-                            icon: Icon(
+                        padding: const EdgeInsets.all(18.0),
+                        child: HoverableButton(
+                            height: 40,
+                            width: 40,
+                            child: Icon(
                               FontAwesomeIcons.twitter,
                               color: Colors.black,
                               size: 30,
@@ -178,9 +208,11 @@ class _CustomDrawerState extends State<CustomDrawer> {
                             }),
                       ),
                       Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: IconButton(
-                            icon: Icon(
+                        padding: const EdgeInsets.all(18.0),
+                        child: HoverableButton(
+                            height: 40,
+                            width: 40,
+                            child: Icon(
                               FontAwesomeIcons.githubAlt,
                               color: Colors.black,
                               size: 30,
@@ -191,9 +223,11 @@ class _CustomDrawerState extends State<CustomDrawer> {
                             }),
                       ),
                       Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: IconButton(
-                            icon: Icon(
+                        padding: const EdgeInsets.all(18.0),
+                        child: HoverableButton(
+                            height: 40,
+                            width: 40,
+                            child: Icon(
                               FontAwesomeIcons.linkedinIn,
                               color: Colors.black,
                               size: 30,
@@ -204,9 +238,11 @@ class _CustomDrawerState extends State<CustomDrawer> {
                             }),
                       ),
                       Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: IconButton(
-                            icon: Icon(
+                        padding: const EdgeInsets.all(18.0),
+                        child: HoverableButton(
+                            height: 40,
+                            width: 40,
+                            child: Icon(
                               FontAwesomeIcons.codepen,
                               color: Colors.black,
                               size: 30,
