@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
-class UIModel extends ChangeNotifier {
+class CursorProvider extends ChangeNotifier {
   ///HomeScreen Logo Animation
   bool isLogoHovering = false;
 

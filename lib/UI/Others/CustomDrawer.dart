@@ -4,10 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
-import 'package:sahdeepsinghflutter/CORE/ProviderModel.dart';
+import 'package:sahdeepsinghflutter/CORE/ProviderModels/CursorProvider.dart';
 import 'package:sahdeepsinghflutter/CORE/Utils.dart';
 import 'package:sahdeepsinghflutter/UI/Others/DefaultCursor.dart';
 import 'package:sahdeepsinghflutter/UI/Others/HoverableButton.dart';
+import 'package:sahdeepsinghflutter/UI/Screens/AboutPage.dart';
 
 class CustomDrawer extends StatefulWidget {
   @override
@@ -17,7 +18,7 @@ class CustomDrawer extends StatefulWidget {
 class _CustomDrawerState extends State<CustomDrawer> {
   @override
   Widget build(BuildContext context) {
-    final uiModel = Provider.of<UIModel>(context);
+    final uiModel = Provider.of<CursorProvider>(context);
     return MouseRegion(
       cursor: SystemMouseCursors.none,
       onHover: (event) {
@@ -99,7 +100,9 @@ class _CustomDrawerState extends State<CustomDrawer> {
                     },
                     cursor: SystemMouseCursors.none,
                     child: GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.pushNamed(context, AboutPage.Route);
+                      },
                       child: AnimatedDefaultTextStyle(
                         duration: Duration(milliseconds: 200),
                         child: Text("About".toUpperCase()),

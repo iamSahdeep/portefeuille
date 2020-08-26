@@ -5,7 +5,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/src/rendering/mouse_cursor.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
-import 'package:sahdeepsinghflutter/CORE/ProviderModel.dart';
+import 'package:sahdeepsinghflutter/CORE/ProviderModels/CursorProvider.dart';
 import 'package:sahdeepsinghflutter/CORE/Utils.dart';
 import 'package:sahdeepsinghflutter/UI/Others/CustomDrawer.dart';
 import 'package:sahdeepsinghflutter/UI/Others/HomeScreenCursor.dart';
@@ -24,11 +24,10 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final uiModel = Provider.of<UIModel>(context);
+    final uiModel = Provider.of<CursorProvider>(context);
     return Scaffold(
       key: globalKey,
       endDrawer: CustomDrawer(),
-      backgroundColor: Color(0xff000000),
       body: MouseRegion(
         cursor: SystemMouseCursors.none,
         onHover: (event) {
