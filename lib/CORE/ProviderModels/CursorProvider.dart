@@ -31,4 +31,11 @@ class CursorProvider extends ChangeNotifier {
     isHoveringNameInAbout = da;
     notifyListeners();
   }
+
+  bool isHoveringMoreDetails = false;
+
+  setIsHoveringMoreDetails(bool da) {
+    isHoveringMoreDetails = da;
+    notifyListeners();
+  }
 }

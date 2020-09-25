@@ -46,6 +46,15 @@ class _ProjectPageState extends State<ProjectPage> {
       width: Utils.getWidth(context),
       child: Stack(
         children: [
+          SingleChildScrollView(
+            physics: BouncingScrollPhysics(),
+            controller: scrollController,
+            scrollDirection: Axis.vertical,
+            child: Container(
+              height: getAllItemsWidth(),
+              width: Utils.getWidth(context),
+            ),
+          ),
           Align(
             alignment: Alignment.topLeft,
             child: Padding(
@@ -70,15 +79,71 @@ class _ProjectPageState extends State<ProjectPage> {
             ),
           ),
           Center(
-            child: Container(
-              width: Utils.getWidth(context) / 1.5,
-              height: Utils.getWidth(context) / 3.5,
-              color: Colors.white10,
-              child: Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Image.asset(ProjectsData
-                    .allProjects[proModel.currentProjectIndex].banner),
-              ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                GestureDetector(
+                  onTap: () {},
+                  child: MouseRegion(
+                    cursor: SystemMouseCursors.click,
+                    onEnter: (_) {
+                      uiModel.setIsHoveringMoreDetails(true);
+                    },
+                    onExit: (_) {
+                      uiModel.setIsHoveringMoreDetails(false);
+                    },
+                    child: Container(
+                      width: Utils.getWidth(context) / 1.5,
+                      height: Utils.getWidth(context) / 3.5,
+                      child: Stack(
+                        children: [
+                          Center(
+                            child: Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: Image.asset(
+                                ProjectsData
+                                    .allProjects[proModel.currentProjectIndex]
+                                    .banner,
+                                fit: BoxFit.cover,
+                                width: Utils.getWidth(context) / 1.5 - 30,
+                                height: Utils.getWidth(context) / 3.5 - 30,
+                              ),
+                            ),
+                          ),
+                          Align(
+                            alignment: Alignment.bottomRight,
+                            child: AnimatedContainer(
+                                duration: Duration(milliseconds: 300),
+                                padding: EdgeInsets.all(
+                                    uiModel.isHoveringMoreDetails ? 20 : 15),
+                                color: uiModel.isHoveringMoreDetails
+                                    ? Colors.purpleAccent
+                                    : Colors.amber,
+                                child: Text(
+                                  "More Details",
+                                  style: TextStyle(color: Colors.black),
+                                )),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                Text(
+                    ProjectsData
+                        .allProjects[proModel.currentProjectIndex].title,
+                    textAlign: TextAlign.center,
+                    style:
+                        TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
+                Text(
+                    ProjectsData.allProjects[proModel.currentProjectIndex]
+                        .shortDescription,
+                    textAlign: TextAlign.center,
+                    style:
+                        TextStyle(fontSize: 16, fontWeight: FontWeight.normal)),
+              ],
             ),
           ),
           Align(
@@ -92,15 +157,6 @@ class _ProjectPageState extends State<ProjectPage> {
                   children: buildScrollableChild(),
                 ),
               ),
-            ),
-          ),
-          SingleChildScrollView(
-            physics: BouncingScrollPhysics(),
-            controller: scrollController,
-            scrollDirection: Axis.vertical,
-            child: Container(
-              height: getAllItemsWidth(),
-              width: Utils.getWidth(context),
             ),
           ),
           AnimatedPositioned(
@@ -141,7 +197,7 @@ class _ProjectPageState extends State<ProjectPage> {
             duration: const Duration(milliseconds: 500),
             width: element.scrollLength,
             height: 10,
-            color: temp ? Colors.white : Colors.black),
+            color: temp ? Colors.amber : Colors.black),
       ));
       width += (element.scrollLength + 40);
     });
