@@ -9,6 +9,7 @@ import 'package:sahdeepsinghflutter/CORE/Utils.dart';
 import 'package:sahdeepsinghflutter/UI/Others/DefaultCursor.dart';
 import 'package:sahdeepsinghflutter/UI/Others/HoverableButton.dart';
 import 'package:sahdeepsinghflutter/UI/Screens/AboutPage.dart';
+import 'package:sahdeepsinghflutter/UI/Screens/ProjectsPage.dart';
 
 class CustomDrawer extends StatefulWidget {
   @override
@@ -125,7 +126,9 @@ class _CustomDrawerState extends State<CustomDrawer> {
                     },
                     cursor: SystemMouseCursors.none,
                     child: GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.pushNamed(context, ProjectPage.Route);
+                      },
                       child: AnimatedDefaultTextStyle(
                         duration: Duration(milliseconds: 200),
                         child: Text("Projects".toUpperCase()),
