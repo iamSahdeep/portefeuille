@@ -10,7 +10,7 @@ class Project {
     this.githubLink,
     this.playstoreLink,
     this.preview,
-  });
+    this.yearAndTech});
 
   final int id;
   final String title;
@@ -22,4 +22,5 @@ class Project {
   final String githubLink;
   final String playstoreLink;
   final String preview;
+  final List<String> yearAndTech;
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sahdeepsinghflutter/CORE/Data/ProjectsData.dart';
 import 'package:sahdeepsinghflutter/CORE/DataModels/Path.dart';
 import 'package:sahdeepsinghflutter/UI/Screens/AboutPage.dart';
 import 'package:sahdeepsinghflutter/UI/Screens/HomePage.dart';
@@ -14,7 +15,7 @@ class RouteConfiguration {
   static List<Path> paths = [
     Path(
       r'^' + ProjectDetailsPage.Route + r'/([\w-]+)$',
-      (context, match) => ProjectDetailsPage(slug: match),
+      (context, match) => ProjectsData.getProjectPage(match),
     ),
     Path(
       r'^' + ProjectPage.Route,
@@ -50,4 +51,5 @@ class RouteConfiguration {
     // If no match was found, we let [WidgetsApp.onUnknownRoute] handle it.
     return null;
   }
+
 }

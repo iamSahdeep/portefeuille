@@ -7,6 +7,7 @@ import 'package:sahdeepsinghflutter/CORE/Data/ProjectsData.dart';
 import 'package:sahdeepsinghflutter/CORE/ProviderModels/CursorProvider.dart';
 import 'package:sahdeepsinghflutter/CORE/ProviderModels/ProjectProvider.dart';
 import 'package:sahdeepsinghflutter/CORE/Utils.dart';
+import 'package:sahdeepsinghflutter/UI/Screens/ProjectDetailsPage.dart';
 
 class ProjectPage extends StatefulWidget {
   static const String TAG = "ProjectPage";
@@ -34,6 +35,14 @@ class _ProjectPageState extends State<ProjectPage> {
     });
     Provider.of<ProjectProvider>(context, listen: false).currentProjectIndex =
         0;
+  }
+
+  @override
+  didChangeDependencies() {
+    ProjectsData.allProjects.forEach((element) {
+      precacheImage(AssetImage(element.banner), context);
+    });
+    super.didChangeDependencies();
   }
 
   Widget build(BuildContext context) {
@@ -84,65 +93,85 @@ class _ProjectPageState extends State<ProjectPage> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisSize: MainAxisSize.max,
               children: [
-                GestureDetector(
-                  onTap: () {},
-                  child: MouseRegion(
-                    cursor: SystemMouseCursors.click,
-                    onEnter: (_) {
-                      uiModel.setIsHoveringMoreDetails(true);
-                    },
-                    onExit: (_) {
-                      uiModel.setIsHoveringMoreDetails(false);
-                    },
-                    child: Container(
-                      width: Utils.getWidth(context) / 1.5,
-                      height: Utils.getWidth(context) / 3.5,
-                      child: Stack(
-                        children: [
-                          Center(
-                            child: Padding(
-                              padding: const EdgeInsets.all(10.0),
+                Expanded(
+                  child: Container(
+                    width: Utils.getWidth(context) / 1.5,
+                    height: Utils.getWidth(context) / 3.5,
+                    child: Stack(
+                      children: [
+                        Center(
+                          child: Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Hero(
+                              tag: ProjectsData
+                                  .allProjects[proModel.currentProjectIndex]
+                                  .slug,
                               child: Image.asset(
                                 ProjectsData
                                     .allProjects[proModel.currentProjectIndex]
                                     .banner,
                                 fit: BoxFit.cover,
+                                gaplessPlayback: true,
                                 width: Utils.getWidth(context) / 1.5 - 30,
                                 height: Utils.getWidth(context) / 3.5 - 30,
                               ),
                             ),
                           ),
-                          Align(
-                            alignment: Alignment.bottomRight,
-                            child: AnimatedContainer(
-                                duration: Duration(milliseconds: 300),
-                                padding: EdgeInsets.all(
-                                    uiModel.isHoveringMoreDetails ? 20 : 15),
-                                color: uiModel.isHoveringMoreDetails
-                                    ? Colors.purpleAccent
-                                    : Colors.amber,
-                                child: Text(
-                                  "More Details",
-                                  style: TextStyle(color: Colors.black),
-                                )),
-                          )
-                        ],
-                      ),
+                        ),
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: MouseRegion(
+                            cursor: SystemMouseCursors.click,
+                            onEnter: (_) {
+                              uiModel.setIsHoveringMoreDetails(true);
+                            },
+                            onExit: (_) {
+                              uiModel.setIsHoveringMoreDetails(false);
+                            },
+                            child: InkWell(
+                              onTap: () {
+                                Navigator.of(context).pushNamed(
+                                  ProjectDetailsPage.routeFromSlug(ProjectsData
+                                      .allProjects[proModel.currentProjectIndex]
+                                      .slug),
+                                );
+                              },
+                              child: AnimatedContainer(
+                                  duration: Duration(milliseconds: 300),
+                                  padding: EdgeInsets.all(
+                                      uiModel.isHoveringMoreDetails ? 20 : 15),
+                                  color: uiModel.isHoveringMoreDetails
+                                      ? Colors.purpleAccent
+                                      : Colors.amber,
+                                  child: Text(
+                                    "More Details",
+                                    style: TextStyle(color: Colors.black),
+                                  )),
+                            ),
+                          ),
+                        )
+                      ],
                     ),
                   ),
                 ),
-                Text(
-                    ProjectsData
-                        .allProjects[proModel.currentProjectIndex].title,
-                    textAlign: TextAlign.center,
-                    style:
-                        TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
-                Text(
-                    ProjectsData.allProjects[proModel.currentProjectIndex]
-                        .shortDescription,
-                    textAlign: TextAlign.center,
-                    style:
-                        TextStyle(fontSize: 16, fontWeight: FontWeight.normal)),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                      ProjectsData
+                          .allProjects[proModel.currentProjectIndex].title,
+                      textAlign: TextAlign.center,
+                      style:
+                      TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Text(
+                      ProjectsData.allProjects[proModel.currentProjectIndex]
+                          .shortDescription,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontSize: 16, fontWeight: FontWeight.normal)),
+                ),
               ],
             ),
           ),
