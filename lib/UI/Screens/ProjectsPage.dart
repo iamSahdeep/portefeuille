@@ -161,7 +161,7 @@ class _ProjectPageState extends State<ProjectPage> {
                           .allProjects[proModel.currentProjectIndex].title,
                       textAlign: TextAlign.center,
                       style:
-                      TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
+                          TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(20.0),
@@ -206,6 +206,7 @@ class _ProjectPageState extends State<ProjectPage> {
   }
 
   List<Widget> buildScrollableChild() {
+    print("c");
     List<Widget> data = [];
     final proModel = Provider.of<ProjectProvider>(context);
     double width = 0;
@@ -214,7 +215,7 @@ class _ProjectPageState extends State<ProjectPage> {
           scrollOffset + Utils.getHeight(context) / 2 <
               width + element.scrollLength + 40;
       WidgetsBinding.instance.addPostFrameCallback((_) {
-        if (temp) {
+        if (temp && proModel.currentProjectIndex != element.id - 1) {
           proModel.setCurrentProjectIndex(element.id - 1);
         }
       });
