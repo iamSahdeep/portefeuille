@@ -52,11 +52,11 @@ class ProjectsData {
       title: 'Bop Music Player',
       slug: 'a-music-player',
       scrollLength: 700.0,
-      banner: "images/bop_banner.png",
+      banner: "images/bop_banner.jpg",
       shortDescription:
-      "Liquid swipe is the revealing clipper to bring off amazing liquid like swipe to stacked Container",
+          "Liquid swipe is the revealing clipper to bring off amazing liquid like swipe to stacked Container",
       longDescription:
-      """Liquid Swipe provides great animation without much boilerplate code. The implementation is simple and easy to use with a list of Containers and can be applied to almost any widget within them. \n\n Liquid Swipe package would be quite useful for anyone who wants to add some kind of out-of-the-box animation to their app.\nAn animation like this is otherwise quite complex and time-consuming to design but this package makes it simple to implement within a matter of minutes.""",
+          """Liquid Swipe provides great animation without much boilerplate code. The implementation is simple and easy to use with a list of Containers and can be applied to almost any widget within them. \n\n Liquid Swipe package would be quite useful for anyone who wants to add some kind of out-of-the-box animation to their app.\nAn animation like this is otherwise quite complex and time-consuming to design but this package makes it simple to implement within a matter of minutes.""",
       githubLink: "https://github.com/iamSahdeep/bop",
       playstoreLink: "",
       yearAndTech: ["2019", "Android", "Java", "Services"],

@@ -80,11 +80,25 @@ class _ProjectDetailsPageState extends State<ProjectDetailsPage> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.all(20.0),
-                          child: Text(
-                            project.title,
-                            style: TextStyle(fontSize: 50),
+                        Hero(
+                          tag: "title_tag",
+                          child: Material(
+                            type: MaterialType.transparency,
+                            child: Padding(
+                              padding: const EdgeInsets.all(20.0),
+                              child: SingleChildScrollView(
+                                physics: NeverScrollableScrollPhysics(),
+                                scrollDirection: Axis.horizontal,
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      project.title,
+                                      style: TextStyle(fontSize: 40),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
                           ),
                         ),
                         Padding(
@@ -143,8 +157,11 @@ class _ProjectDetailsPageState extends State<ProjectDetailsPage> {
                 height: 40,
                 width: 100,
                 child: Text(
-                  "X Close",
-                  style: TextStyle(color: Colors.amber),
+                  "X",
+                  style: TextStyle(
+                      color: Colors.amber,
+                      fontSize: 40,
+                      fontWeight: FontWeight.bold),
                 ),
                 onPressed: () {
                   Navigator.of(context).pop();

@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
         onUnknownRoute: (settings) {
           return MaterialPageRoute(
               builder: (_) => PageNotFound(),
-              settings: RouteSettings(name: "404"));
+              settings: RouteSettings(name: PageNotFound.Route));
         },
       ),
     );

@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:sahdeepsinghflutter/CORE/Data/ProjectsData.dart';
 import 'package:sahdeepsinghflutter/CORE/DataModels/Path.dart';
 import 'package:sahdeepsinghflutter/UI/Screens/AboutPage.dart';
+import 'package:sahdeepsinghflutter/UI/Screens/BlogsPage.dart';
+import 'package:sahdeepsinghflutter/UI/Screens/ContactPage.dart';
 import 'package:sahdeepsinghflutter/UI/Screens/HomePage.dart';
+import 'package:sahdeepsinghflutter/UI/Screens/PageNotFound.dart';
 import 'package:sahdeepsinghflutter/UI/Screens/ProjectDetailsPage.dart';
 import 'package:sahdeepsinghflutter/UI/Screens/ProjectsPage.dart';
 
@@ -26,8 +29,16 @@ class RouteConfiguration {
       (context, match) => AboutPage(),
     ),
     Path(
-      r'^' + HomePage.Route,
-      (context, match) => HomePage(),
+      r'^' + BlogsPage.Route,
+      (context, match) => BlogsPage(),
+    ),
+    Path(
+      r'^' + ContactPage.Route,
+      (context, match) => ContactPage(),
+    ),
+    Path(
+      r'^' + PageNotFound.Route,
+      (context, match) => PageNotFound(),
     ),
   ];
 
@@ -36,12 +47,18 @@ class RouteConfiguration {
   /// [WidgetsApp.onGenerateRoute] to make use of the [paths] for route
   /// matching.
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
+    if (settings.name == "/") {
+      return CustomPageRoute(
+        builder: (context) => HomePage(),
+        settings: settings,
+      );
+    }
     for (Path path in paths) {
       final regExpPattern = RegExp(path.pattern);
       if (regExpPattern.hasMatch(settings.name)) {
         final firstMatch = regExpPattern.firstMatch(settings.name);
         final match = (firstMatch.groupCount == 1) ? firstMatch.group(1) : null;
-        return MaterialPageRoute<void>(
+        return CustomPageRoute(
           builder: (context) => path.builder(context, match),
           settings: settings,
         );
@@ -51,5 +68,12 @@ class RouteConfiguration {
     // If no match was found, we let [WidgetsApp.onUnknownRoute] handle it.
     return null;
   }
+}
 
+class CustomPageRoute extends MaterialPageRoute {
+  @override
+  Duration get transitionDuration => const Duration(milliseconds: 500);
+
+  CustomPageRoute({builder, settings})
+      : super(builder: builder, settings: settings);
 }

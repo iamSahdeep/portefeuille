@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sahdeepsinghflutter/CORE/Utils.dart';
 import 'package:sahdeepsinghflutter/UI/Screens/HomePage.dart';
 
 class PageNotFound extends StatelessWidget {
+  static const String Route = "/404";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,9 +29,9 @@ class PageNotFound extends StatelessWidget {
                 iconSize: 50,
                 onPressed: () {
                   Navigator.pushNamedAndRemoveUntil(context, HomePage.Route,
-                      (c) {
-                    return false;
-                  });
+                          (c) {
+                        return false;
+                      });
                 },
               ),
             ),

@@ -9,6 +9,8 @@ import 'package:sahdeepsinghflutter/CORE/Utils.dart';
 import 'package:sahdeepsinghflutter/UI/Others/DefaultCursor.dart';
 import 'package:sahdeepsinghflutter/UI/Others/HoverableButton.dart';
 import 'package:sahdeepsinghflutter/UI/Screens/AboutPage.dart';
+import 'package:sahdeepsinghflutter/UI/Screens/BlogsPage.dart';
+import 'package:sahdeepsinghflutter/UI/Screens/ContactPage.dart';
 import 'package:sahdeepsinghflutter/UI/Screens/ProjectsPage.dart';
 
 class CustomDrawer extends StatefulWidget {
@@ -151,7 +153,9 @@ class _CustomDrawerState extends State<CustomDrawer> {
                     },
                     cursor: SystemMouseCursors.none,
                     child: GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.pushNamed(context, BlogsPage.Route);
+                      },
                       child: AnimatedDefaultTextStyle(
                         duration: Duration(milliseconds: 200),
                         child: Text("Blogs".toUpperCase()),
@@ -174,7 +178,9 @@ class _CustomDrawerState extends State<CustomDrawer> {
                     },
                     cursor: SystemMouseCursors.none,
                     child: GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.pushNamed(context, ContactPage.Route);
+                      },
                       child: AnimatedDefaultTextStyle(
                         duration: Duration(milliseconds: 200),
                         child: Text("Contact".toUpperCase()),

@@ -54,7 +54,9 @@ class AboutPage extends StatelessWidget {
                     child: Transform.rotate(
                       angle: uiModel.isLogoHovering ? 50 : 0,
                       child: InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.of(context).pop();
+                        },
                         onHover: (val) {
                           uiModel.setIsLogoHovering(val);
                         },

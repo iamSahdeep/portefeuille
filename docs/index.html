@@ -1,33 +1,100 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter application.">
+    <meta charset="UTF-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta content="A new Flutter application." name="description">
 
-  <!-- iOS meta tags & icons -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="sahdeepsinghflutter">
-  <link rel="apple-touch-icon" href="favicon.png">
+    <!-- iOS meta tags & icons -->
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="sahdeepsinghflutter" name="apple-mobile-web-app-title">
+    <link href="favicon.png" rel="apple-touch-icon">
 
-  <!-- Favicon -->
-  <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+    <!-- Favicon -->
+    <link href="favicon.png" rel="shortcut icon" type="image/png"/>
 
-  <title>Sahdeep Singh</title>
-  <link rel="manifest" href="manifest.json">
+    <title>Sahdeep Singh</title>
+    <link href="manifest.json" rel="manifest">
+    <style>
+    body {
+	 width: 100vw;
+	 height: 100vh;
+	 margin: 0;
+	 background-color: #2c2a2a;
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+	 align-content: center;
+}
+ .loader {
+	 width: 8vmax;
+	 height: 8vmax;
+	 border-right: 4px solid #fff;
+	 border-radius: 100%;
+	 z-index: -1;
+	 animation: spinRight 800ms linear infinite;
+}
+ .loader:before, .loader:after {
+	 content: '';
+	 width: 6vmax;
+	 height: 6vmax;
+	 display: block;
+	 position: absolute;
+	 top: calc(50% - 3vmax);
+	 left: calc(50% - 3vmax);
+	 border-left: 3px solid #fff;
+	 border-radius: 100%;
+	 animation: spinLeft 800ms linear infinite;
+}
+ .loader:after {
+	 width: 4vmax;
+	 height: 4vmax;
+	 top: calc(50% - 2vmax);
+	 left: calc(50% - 2vmax);
+	 border: 0;
+	 border-right: 2px solid #fff;
+	 animation: none;
+}
+ @keyframes spinLeft {
+	 from {
+		 transform: rotate(0deg);
+	}
+	 to {
+		 transform: rotate(720deg);
+	}
+}
+ @keyframes spinRight {
+	 from {
+		 transform: rotate(360deg);
+	}
+	 to {
+		 transform: rotate(0deg);
+	}
+}
+
+
+    </style>
 </head>
 <body id="app-container">
-  <!-- This script installs service_worker.js to provide PWA functionality to
-       application. For more information, see:
-       https://developers.google.com/web/fundamentals/primers/service-workers -->
-  <script>
+
+<div class="loader"></div>
+
+<!-- This script installs service_worker.js to provide PWA functionality to
+     application. For more information, see:
+     https://developers.google.com/web/fundamentals/primers/service-workers -->
+<script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function () {
-        navigator.serviceWorker.register('flutter_service_worker.js');
+        navigator.serviceWorker.register('flutter_service_worker.js?v=832871100');
       });
     }
-  </script>
-  <script src="main.dart.js" type="application/javascript"></script>
+
+
+
+
+
+</script>
+<script src="main.dart.js" type="application/javascript"></script>
 </body>
 </html>
