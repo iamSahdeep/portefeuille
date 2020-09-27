@@ -18,6 +18,7 @@ class ProjectsData {
       githubLink: "https://github.com/iamSahdeep/liquid_swipe_flutter",
       playstoreLink: "",
       yearAndTech: ["2019", "Flutter", "Dart"],
+      preview: "",
     ),
     Project(
       id: 2,
@@ -32,6 +33,7 @@ class ProjectsData {
       githubLink: "https://github.com/iamSahdeep/portefeuille",
       playstoreLink: "",
       yearAndTech: ["2019", "Flutter", "Dart", "dartToJs"],
+      preview: "",
     ),
     Project(
       id: 3,
@@ -46,6 +48,7 @@ class ProjectsData {
       githubLink: "https://github.com/iamSahdeep/minesweeper_flutter",
       playstoreLink: "",
       yearAndTech: ["2019", "Flutter", "Dart", "Android"],
+      preview: "",
     ),
     Project(
       id: 4,
@@ -54,12 +57,13 @@ class ProjectsData {
       scrollLength: 700.0,
       banner: "images/bop_banner.jpg",
       shortDescription:
-          "Liquid swipe is the revealing clipper to bring off amazing liquid like swipe to stacked Container",
+      "Liquid swipe is the revealing clipper to bring off amazing liquid like swipe to stacked Container",
       longDescription:
-          """Liquid Swipe provides great animation without much boilerplate code. The implementation is simple and easy to use with a list of Containers and can be applied to almost any widget within them. \n\n Liquid Swipe package would be quite useful for anyone who wants to add some kind of out-of-the-box animation to their app.\nAn animation like this is otherwise quite complex and time-consuming to design but this package makes it simple to implement within a matter of minutes.""",
+      """Liquid Swipe provides great animation without much boilerplate code. The implementation is simple and easy to use with a list of Containers and can be applied to almost any widget within them. \n\n Liquid Swipe package would be quite useful for anyone who wants to add some kind of out-of-the-box animation to their app.\nAn animation like this is otherwise quite complex and time-consuming to design but this package makes it simple to implement within a matter of minutes.""",
       githubLink: "https://github.com/iamSahdeep/bop",
       playstoreLink: "",
       yearAndTech: ["2019", "Android", "Java", "Services"],
+      preview: "",
     ),
     Project(
       id: 5,
@@ -74,6 +78,7 @@ class ProjectsData {
       githubLink: "https://github.com/iamSahdeep/FlutterVisualizers",
       playstoreLink: "",
       yearAndTech: ["2019", "Flutter", "Dart", "Android", "Java"],
+      preview: "",
     ),
     Project(
       id: 6,
@@ -88,6 +93,7 @@ class ProjectsData {
       githubLink: "https://github.com/iamSahdeep/fu_uber",
       playstoreLink: "",
       yearAndTech: ["2019", "Flutter", "Dart", "Map SDK"],
+      preview: "",
     ),
   ];
 

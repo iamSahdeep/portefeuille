@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:sahdeepsinghflutter/CORE/ProviderModels/CursorProvider.dart';
 import 'package:sahdeepsinghflutter/CORE/Utils.dart';
@@ -47,38 +46,15 @@ class AboutPage extends StatelessWidget {
             ),
             Stack(
               children: [
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: Padding(
-                    padding: const EdgeInsets.all(18.0),
-                    child: Transform.rotate(
-                      angle: uiModel.isLogoHovering ? 50 : 0,
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.of(context).pop();
-                        },
-                        onHover: (val) {
-                          uiModel.setIsLogoHovering(val);
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          child: Icon(
-                            FontAwesomeIcons.github,
-                            size: 50,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
                 SingleChildScrollView(
                   child: Column(
                     children: [
                       AnimatedPadding(
                         duration: const Duration(milliseconds: 200),
                         padding: EdgeInsets.symmetric(
-                            vertical: uiModel.pointerPosition.dy / 10),
+                            vertical: Utils.isMobileView(context)
+                                ? 100
+                                : uiModel.pointerPosition.dy / 10),
                         child: SingleChildScrollView(
                           padding: EdgeInsets.only(top: 50),
                           scrollDirection: Axis.horizontal,
@@ -86,13 +62,15 @@ class AboutPage extends StatelessWidget {
                           child: AnimatedContainer(
                             duration: const Duration(milliseconds: 200),
                             margin: EdgeInsets.only(
-                                left: uiModel.pointerPosition.dx / 4),
+                                left: Utils.isMobileView(context)
+                                    ? 10
+                                    : uiModel.pointerPosition.dx / 4),
                             child: Text(
                               "About   About   About",
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   fontSize:
-                                      Utils.isMobileView(context) ? 100 : 150,
+                                      Utils.isMobileView(context) ? 60 : 150,
                                   fontWeight: FontWeight.bold),
                             ),
                           ),
@@ -108,7 +86,8 @@ class AboutPage extends StatelessWidget {
                             RichText(
                               text: TextSpan(
                                   style: TextStyle(
-                                      fontSize: 40,
+                                      fontSize:
+                                      Utils.isMobileView(context) ? 25 : 40,
                                       color: Colors.white,
                                       letterSpacing: 2,
                                       wordSpacing: 5),
@@ -156,7 +135,10 @@ class AboutPage extends StatelessWidget {
                         child: Column(
                           children: [
                             Padding(
-                              padding: const EdgeInsets.only(bottom: 38.0),
+                              padding: EdgeInsets.only(
+                                  bottom: 38.0,
+                                  top:
+                                  Utils.isMobileView(context) ? 50.0 : 0.0),
                               child: Text(
                                 "Experience",
                                 style: TextStyle(fontSize: 50),
@@ -175,21 +157,30 @@ class AboutPage extends StatelessWidget {
                                     child: Text(
                                       "Android Engineer",
                                       textAlign: TextAlign.center,
-                                      style: TextStyle(fontSize: 25),
+                                      style: TextStyle(
+                                          fontSize: Utils.isMobileView(context)
+                                              ? 15
+                                              : 25),
                                     ),
                                   ),
                                   Expanded(
                                     child: Text(
                                       "Bobble AI",
                                       textAlign: TextAlign.center,
-                                      style: TextStyle(fontSize: 25),
+                                      style: TextStyle(
+                                          fontSize: Utils.isMobileView(context)
+                                              ? 15
+                                              : 25),
                                     ),
                                   ),
                                   Expanded(
                                     child: Text(
                                       "2020-present",
                                       textAlign: TextAlign.center,
-                                      style: TextStyle(fontSize: 25),
+                                      style: TextStyle(
+                                          fontSize: Utils.isMobileView(context)
+                                              ? 15
+                                              : 25),
                                     ),
                                   ),
                                 ],
@@ -201,65 +192,42 @@ class AboutPage extends StatelessWidget {
                               color: Colors.grey,
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(
-                                  top: 50.0, left: 50, right: 50),
+                              padding: EdgeInsets.all(
+                                  Utils.isMobileView(context) ? 10 : 50.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Expanded(
-                                    child: Text(
-                                      "Flutter Developer",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(fontSize: 25),
-                                    ),
-                                  ),
-                                  Expanded(
-                                    child: Text(
-                                      "Aeologic",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(fontSize: 25),
-                                    ),
-                                  ),
-                                  Expanded(
-                                    child: Text(
-                                      "2019-2020",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(fontSize: 25),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(50.0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
+                                MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Expanded(
                                     child: Text(
                                       "Android Intern",
                                       textAlign: TextAlign.center,
-                                      style: TextStyle(fontSize: 25),
+                                      style: TextStyle(
+                                          fontSize: Utils.isMobileView(context)
+                                              ? 15
+                                              : 25),
                                     ),
                                   ),
                                   Expanded(
                                     child: Text(
                                       "Asearch Online",
                                       textAlign: TextAlign.center,
-                                      style: TextStyle(fontSize: 25),
+                                      style: TextStyle(
+                                          fontSize: Utils.isMobileView(context)
+                                              ? 15
+                                              : 25),
                                     ),
                                   ),
                                   Expanded(
                                     child: Text(
                                       "2017-2017",
                                       textAlign: TextAlign.center,
-                                      style: TextStyle(fontSize: 25),
+                                      style: TextStyle(
+                                          fontSize: Utils.isMobileView(context)
+                                              ? 15
+                                              : 25),
                                     ),
                                   ),
                                 ],
@@ -281,32 +249,42 @@ class AboutPage extends StatelessWidget {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.all(50.0),
+                              padding: EdgeInsets.all(
+                                  Utils.isMobileView(context) ? 10 : 50.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
+                                MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Expanded(
                                     child: Text(
                                       "Android",
                                       textAlign: TextAlign.center,
-                                      style: TextStyle(fontSize: 25),
+                                      style: TextStyle(
+                                          fontSize: Utils.isMobileView(context)
+                                              ? 15
+                                              : 25),
                                     ),
                                   ),
                                   Expanded(
                                     child: Text(
                                       "Flutter",
                                       textAlign: TextAlign.center,
-                                      style: TextStyle(fontSize: 25),
+                                      style: TextStyle(
+                                          fontSize: Utils.isMobileView(context)
+                                              ? 15
+                                              : 25),
                                     ),
                                   ),
                                   Expanded(
                                     child: Text(
                                       "Firebase",
                                       textAlign: TextAlign.center,
-                                      style: TextStyle(fontSize: 25),
+                                      style: TextStyle(
+                                          fontSize: Utils.isMobileView(context)
+                                              ? 15
+                                              : 25),
                                     ),
                                   ),
                                 ],
@@ -318,65 +296,86 @@ class AboutPage extends StatelessWidget {
                               color: Colors.grey,
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(
+                              padding: Utils.isMobileView(context)
+                                  ? EdgeInsets.all(10)
+                                  : const EdgeInsets.only(
                                   top: 50.0, left: 50, right: 50),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
+                                MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Expanded(
                                     child: Text(
                                       "Dart",
                                       textAlign: TextAlign.center,
-                                      style: TextStyle(fontSize: 25),
+                                      style: TextStyle(
+                                          fontSize: Utils.isMobileView(context)
+                                              ? 15
+                                              : 25),
                                     ),
                                   ),
                                   Expanded(
                                     child: Text(
                                       "Kotlin",
                                       textAlign: TextAlign.center,
-                                      style: TextStyle(fontSize: 25),
+                                      style: TextStyle(
+                                          fontSize: Utils.isMobileView(context)
+                                              ? 15
+                                              : 25),
                                     ),
                                   ),
                                   Expanded(
                                     child: Text(
                                       "Java",
                                       textAlign: TextAlign.center,
-                                      style: TextStyle(fontSize: 25),
+                                      style: TextStyle(
+                                          fontSize: Utils.isMobileView(context)
+                                              ? 15
+                                              : 25),
                                     ),
                                   ),
                                 ],
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.all(50.0),
+                              padding: EdgeInsets.all(
+                                  Utils.isMobileView(context) ? 10 : 50.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
+                                MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Expanded(
                                     child: Text(
                                       "Git/Github",
                                       textAlign: TextAlign.center,
-                                      style: TextStyle(fontSize: 25),
+                                      style: TextStyle(
+                                          fontSize: Utils.isMobileView(context)
+                                              ? 15
+                                              : 25),
                                     ),
                                   ),
                                   Expanded(
                                     child: Text(
                                       "Cloud/Libraries",
                                       textAlign: TextAlign.center,
-                                      style: TextStyle(fontSize: 25),
+                                      style: TextStyle(
+                                          fontSize: Utils.isMobileView(context)
+                                              ? 15
+                                              : 25),
                                     ),
                                   ),
                                   Expanded(
                                     child: Text(
                                       "Rest Integration",
                                       textAlign: TextAlign.center,
-                                      style: TextStyle(fontSize: 25),
+                                      style: TextStyle(
+                                          fontSize: Utils.isMobileView(context)
+                                              ? 15
+                                              : 25),
                                     ),
                                   ),
                                 ],
@@ -386,6 +385,33 @@ class AboutPage extends StatelessWidget {
                         ),
                       )
                     ],
+                  ),
+                ),
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: Padding(
+                    padding:
+                    EdgeInsets.all(Utils.isMobileView(context) ? 10 : 18.0),
+                    child: InkWell(
+                      hoverColor: Colors.transparent,
+                      mouseCursor: SystemMouseCursors.none,
+                      onTap: () {
+                        Navigator.of(context).pop();
+                      },
+                      onHover: (val) {
+                        uiModel.setIsLogoHovering(val);
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: AnimatedContainer(
+                          height: uiModel.isLogoHovering ? 60 : 50,
+                          duration: const Duration(milliseconds: 200),
+                          child: Image.asset(
+                            "images/logo.png",
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ],

@@ -97,12 +97,12 @@ class _HomeScreenCursorState extends State<HomeScreenCursor>
               Align(
                 alignment: Alignment.center,
                 child: Container(
-                  height: 200,
-                  width: 200,
+                  height: 240,
+                  width: 240,
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(100)),
+                      borderRadius: BorderRadius.all(Radius.circular(120)),
                       border: Border.all(
-                          width: 10,
+                          width: 15,
                           color: Colors.white,
                           style: BorderStyle.solid)),
                   child: Center(
@@ -110,8 +110,8 @@ class _HomeScreenCursorState extends State<HomeScreenCursor>
                     "Hello",
                     style: TextStyle(
                         color: Colors.white,
-                        fontSize: 50,
-                        fontWeight: FontWeight.bold),
+                            fontSize: 60,
+                            fontWeight: FontWeight.bold),
                   )),
                 ),
               )

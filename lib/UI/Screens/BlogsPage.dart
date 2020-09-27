@@ -2,7 +2,9 @@ import 'dart:js' as js;
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter/rendering.dart';
+import 'package:provider/provider.dart';
+import 'package:sahdeepsinghflutter/CORE/ProviderModels/CursorProvider.dart';
 import 'package:sahdeepsinghflutter/CORE/Utils.dart';
 import 'package:sahdeepsinghflutter/UI/Others/CustomDrawer.dart';
 import 'package:sahdeepsinghflutter/UI/Others/HoverableButton.dart';
@@ -14,6 +16,8 @@ class BlogsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final globalKey = GlobalKey<ScaffoldState>();
 
+    final uiModel = Provider.of<CursorProvider>(context);
+
     return Scaffold(
       key: globalKey,
       endDrawer: CustomDrawer(),
@@ -23,17 +27,23 @@ class BlogsPage extends StatelessWidget {
           Align(
             alignment: Alignment.topLeft,
             child: Padding(
-              padding: const EdgeInsets.all(18.0),
+              padding: EdgeInsets.all(Utils.isMobileView(context) ? 10 : 18.0),
               child: InkWell(
+                hoverColor: Colors.transparent,
                 onTap: () {
-                  Navigator.pop(context);
+                  Navigator.of(context).pop();
+                },
+                onHover: (val) {
+                  uiModel.setIsLogoHovering(val);
                 },
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Icon(
-                    FontAwesomeIcons.github,
-                    size: 50,
-                    color: Colors.white,
+                  child: AnimatedContainer(
+                    height: uiModel.isLogoHovering ? 60 : 50,
+                    duration: const Duration(milliseconds: 200),
+                    child: Image.asset(
+                      "images/logo.png",
+                    ),
                   ),
                 ),
               ),
@@ -72,7 +82,9 @@ class BlogsPage extends StatelessWidget {
                     style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
-                        fontSize: Utils.getHeight(context) / 10),
+                        fontSize: Utils.isMobileView(context)
+                            ? 40
+                            : Utils.getHeight(context) / 10),
                   ),
                 ),
                 Padding(
@@ -88,6 +100,13 @@ class BlogsPage extends StatelessWidget {
                   ),
                 ),
               ],
+            ),
+          ),
+          Align(
+            alignment: Alignment.bottomRight,
+            child: Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: Text("Awesome design coming soon.."),
             ),
           ),
         ],

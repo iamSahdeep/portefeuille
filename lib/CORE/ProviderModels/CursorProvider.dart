@@ -10,7 +10,7 @@ class CursorProvider extends ChangeNotifier {
   }
 
   ///Hover Effect Cursor
-  Offset pointerPosition = Offset(600, 400);
+  Offset pointerPosition = Offset(600, 500);
 
   setPointerPosition(Offset da) {
     pointerPosition = da;

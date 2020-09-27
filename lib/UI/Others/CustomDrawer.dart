@@ -51,25 +51,6 @@ class _CustomDrawerState extends State<CustomDrawer> {
               ),
             ),
             Align(
-              alignment: Alignment.topLeft,
-              child: Padding(
-                padding: const EdgeInsets.all(18.0),
-                child: GestureDetector(
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Icon(
-                      FontAwesomeIcons.github,
-                      size: 50,
-                      color: Colors.black,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            Align(
               alignment: Alignment.topRight,
               child: Padding(
                 padding: const EdgeInsets.all(18.0),
@@ -114,8 +95,10 @@ class _CustomDrawerState extends State<CustomDrawer> {
                                 ? Colors.white
                                 : Colors.black,
                             fontWeight: FontWeight.w900,
-                            fontSize: Utils.getHeight(context) /
-                                (uiModel.currentHoverItem == 1 ? 7 : 8)),
+                            fontSize: Utils.isMobileView(context)
+                                ? 50
+                                : Utils.getHeight(context) /
+                                    (uiModel.currentHoverItem == 1 ? 7 : 8)),
                       ),
                     ),
                   ),
@@ -139,7 +122,9 @@ class _CustomDrawerState extends State<CustomDrawer> {
                                 ? Colors.white
                                 : Colors.black,
                             fontWeight: FontWeight.w900,
-                            fontSize: Utils.getHeight(context) /
+                            fontSize: Utils.isMobileView(context)
+                                ? 50
+                                : Utils.getHeight(context) /
                                 (uiModel.currentHoverItem == 2 ? 7 : 8)),
                       ),
                     ),
@@ -164,7 +149,9 @@ class _CustomDrawerState extends State<CustomDrawer> {
                                 ? Colors.white
                                 : Colors.black,
                             fontWeight: FontWeight.w900,
-                            fontSize: Utils.getHeight(context) /
+                            fontSize: Utils.isMobileView(context)
+                                ? 50
+                                : Utils.getHeight(context) /
                                 (uiModel.currentHoverItem == 3 ? 7 : 8)),
                       ),
                     ),
@@ -189,7 +176,9 @@ class _CustomDrawerState extends State<CustomDrawer> {
                                 ? Colors.white
                                 : Colors.black,
                             fontWeight: FontWeight.w900,
-                            fontSize: Utils.getHeight(context) /
+                            fontSize: Utils.isMobileView(context)
+                                ? 50
+                                : Utils.getHeight(context) /
                                 (uiModel.currentHoverItem == 4 ? 7 : 8)),
                       ),
                     ),

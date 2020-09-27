@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:sahdeepsinghflutter/CORE/Data/ProjectsData.dart';
 import 'package:sahdeepsinghflutter/CORE/ProviderModels/CursorProvider.dart';
@@ -69,20 +68,24 @@ class _ProjectPageState extends State<ProjectPage> {
               Align(
                 alignment: Alignment.topLeft,
                 child: Padding(
-                  padding: const EdgeInsets.all(18.0),
-                  child: Transform.rotate(
-                    angle: uiModel.isLogoHovering ? 50 : 0,
-                    child: InkWell(
-                      onTap: () {},
-                      onHover: (val) {
-                        uiModel.setIsLogoHovering(val);
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.all(5.0),
-                        child: Icon(
-                          FontAwesomeIcons.github,
-                          size: 50,
-                          color: Colors.white,
+                  padding:
+                      EdgeInsets.all(Utils.isMobileView(context) ? 10 : 18.0),
+                  child: InkWell(
+                    hoverColor: Colors.transparent,
+                    mouseCursor: SystemMouseCursors.none,
+                    onTap: () {
+                      Navigator.of(context).pop();
+                    },
+                    onHover: (val) {
+                      uiModel.setIsLogoHovering(val);
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: AnimatedContainer(
+                        height: uiModel.isLogoHovering ? 60 : 50,
+                        duration: const Duration(milliseconds: 200),
+                        child: Image.asset(
+                          "images/logo.png",
                         ),
                       ),
                     ),
@@ -111,18 +114,26 @@ class _ProjectPageState extends State<ProjectPage> {
                                   child: Image.asset(
                                     ProjectsData
                                         .allProjects[
-                                            proModel.currentProjectIndex]
+                                    proModel.currentProjectIndex]
                                         .banner,
-                                    fit: BoxFit.cover,
+                                    fit: Utils.isMobileView(context)
+                                        ? BoxFit.fitHeight
+                                        : BoxFit.cover,
                                     gaplessPlayback: true,
-                                    width: Utils.getWidth(context) / 1.5 - 30,
-                                    height: Utils.getWidth(context) / 3.5 - 30,
+                                    width: Utils.isMobileView(context)
+                                        ? Utils.getWidth(context)
+                                        : Utils.getWidth(context) / 1.5 - 30,
+                                    height: Utils.isMobileView(context)
+                                        ? Utils.getHeight(context) / 1.7
+                                        : Utils.getWidth(context) / 3.5 - 30,
                                   ),
                                 ),
                               ),
                             ),
                             Align(
-                              alignment: Alignment.centerRight,
+                              alignment: Utils.isMobileView(context)
+                                  ? Alignment.bottomCenter
+                                  : Alignment.centerRight,
                               child: MouseRegion(
                                 cursor: SystemMouseCursors.click,
                                 onEnter: (_) {
@@ -167,7 +178,9 @@ class _ProjectPageState extends State<ProjectPage> {
                       child: Material(
                         type: MaterialType.transparency,
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: Utils.isMobileView(context)
+                              ? EdgeInsets.only(top: 30)
+                              : const EdgeInsets.all(8.0),
                           child: Text(
                               ProjectsData
                                   .allProjects[proModel.currentProjectIndex]

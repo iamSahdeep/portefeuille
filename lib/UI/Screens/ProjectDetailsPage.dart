@@ -61,21 +61,25 @@ class _ProjectDetailsPageState extends State<ProjectDetailsPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Expanded(
-                    child: ListView.builder(
-                        shrinkWrap: true,
-                        itemCount: project.yearAndTech.length,
-                        itemBuilder: (context, index) {
-                          return Center(
-                              child: Padding(
-                            padding: EdgeInsets.all(index == 0 ? 30 : 12.0),
-                            child: Text(
-                              project.yearAndTech[index],
-                              style: TextStyle(fontSize: index == 0 ? 30 : 20),
-                            ),
-                          ));
-                        }),
-                  ),
+                  Utils.isMobileView(context)
+                      ? SizedBox()
+                      : Expanded(
+                          child: ListView.builder(
+                              shrinkWrap: true,
+                              itemCount: project.yearAndTech.length,
+                              itemBuilder: (context, index) {
+                                return Center(
+                                    child: Padding(
+                                  padding:
+                                      EdgeInsets.all(index == 0 ? 30 : 12.0),
+                                  child: Text(
+                                    project.yearAndTech[index],
+                                    style: TextStyle(
+                                        fontSize: index == 0 ? 30 : 20),
+                                  ),
+                                ));
+                              }),
+                        ),
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -93,7 +97,10 @@ class _ProjectDetailsPageState extends State<ProjectDetailsPage> {
                                   children: [
                                     Text(
                                       project.title,
-                                      style: TextStyle(fontSize: 40),
+                                      style: TextStyle(
+                                          fontSize: Utils.isMobileView(context)
+                                              ? 30
+                                              : 40),
                                     ),
                                   ],
                                 ),
@@ -105,7 +112,9 @@ class _ProjectDetailsPageState extends State<ProjectDetailsPage> {
                           padding: const EdgeInsets.all(20.0),
                           child: Text(
                             project.shortDescription,
-                            style: TextStyle(fontSize: 30),
+                            style: TextStyle(
+                                fontSize:
+                                Utils.isMobileView(context) ? 20 : 30),
                           ),
                         )
                       ],
@@ -113,6 +122,21 @@ class _ProjectDetailsPageState extends State<ProjectDetailsPage> {
                   ),
                 ],
               ),
+              !Utils.isMobileView(context)
+                  ? SizedBox()
+                  : ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: project.yearAndTech.length,
+                  itemBuilder: (context, index) {
+                    return Center(
+                        child: Padding(
+                          padding: EdgeInsets.all(index == 0 ? 30 : 12.0),
+                          child: Text(
+                            project.yearAndTech[index],
+                            style: TextStyle(fontSize: index == 0 ? 30 : 20),
+                          ),
+                        ));
+                  }),
               Padding(
                 padding: const EdgeInsets.all(40.0),
                 child: Container(
@@ -122,11 +146,13 @@ class _ProjectDetailsPageState extends State<ProjectDetailsPage> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(60.0),
+                padding:
+                EdgeInsets.all(Utils.isMobileView(context) ? 30 : 60.0),
                 child: Text(
                   project.longDescription,
                   textAlign: TextAlign.justify,
-                  style: TextStyle(fontSize: 20),
+                  style: TextStyle(
+                      fontSize: Utils.isMobileView(context) ? 16 : 20),
                 ),
               ),
               Padding(

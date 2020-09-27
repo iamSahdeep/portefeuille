@@ -23,6 +23,11 @@ class _HomePageState extends State<HomePage> {
   final globalKey = GlobalKey<ScaffoldState>();
 
   @override
+  didChangeDependencies() {
+    super.didChangeDependencies();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final uiModel = Provider.of<CursorProvider>(context);
     return Scaffold(
@@ -39,7 +44,7 @@ class _HomePageState extends State<HomePage> {
           child: Stack(
             children: [
               AnimatedPositioned(
-                  duration: const Duration(milliseconds: 200),
+                  duration: const Duration(milliseconds: 150),
                   left: uiModel.pointerPosition.dx,
                   top: uiModel.pointerPosition.dy,
                   child: Container(
@@ -48,7 +53,7 @@ class _HomePageState extends State<HomePage> {
                     color: Colors.white,
                   )),
               AnimatedPositioned(
-                duration: Duration(milliseconds: 500),
+                duration: Duration(milliseconds: 300),
                 left: Utils.getCursorMainScreenWithRangeW(
                     uiModel.pointerPosition.dx, context),
                 top: Utils.getCursorMainScreenWithRangeH(
@@ -58,20 +63,22 @@ class _HomePageState extends State<HomePage> {
               Align(
                 alignment: Alignment.topLeft,
                 child: Padding(
-                  padding: const EdgeInsets.all(18.0),
-                  child: Transform.rotate(
-                    angle: uiModel.isLogoHovering ? 50 : 0,
-                    child: InkWell(
-                      onTap: () {},
-                      onHover: (val) {
-                        uiModel.setIsLogoHovering(val);
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Icon(
-                          FontAwesomeIcons.github,
-                          size: 50,
-                          color: Colors.white,
+                  padding:
+                      EdgeInsets.all(Utils.isMobileView(context) ? 10 : 18.0),
+                  child: InkWell(
+                    hoverColor: Colors.transparent,
+                    mouseCursor: SystemMouseCursors.none,
+                    onTap: () {},
+                    onHover: (val) {
+                      uiModel.setIsLogoHovering(val);
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: AnimatedContainer(
+                        height: uiModel.isLogoHovering ? 60 : 50,
+                        duration: const Duration(milliseconds: 200),
+                        child: Image.asset(
+                          "images/logo.png",
                         ),
                       ),
                     ),
@@ -81,7 +88,8 @@ class _HomePageState extends State<HomePage> {
               Align(
                 alignment: Alignment.topRight,
                 child: Padding(
-                  padding: const EdgeInsets.all(15.0),
+                  padding:
+                  EdgeInsets.all(Utils.isMobileView(context) ? 10 : 15.0),
                   child: HoverableButton(
                     width: 70,
                     height: 70,
@@ -100,7 +108,9 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               Align(
-                alignment: Alignment.bottomLeft,
+                alignment: Utils.isMobileView(context)
+                    ? Alignment.bottomCenter
+                    : Alignment.bottomLeft,
                 child: Padding(
                     padding: const EdgeInsets.all(20.0),
                     child: Row(
@@ -147,7 +157,9 @@ class _HomePageState extends State<HomePage> {
               ),
               Align(
                 alignment: Alignment.bottomRight,
-                child: Padding(
+                child: Utils.isMobileView(context)
+                    ? SizedBox()
+                    : Padding(
                     padding: const EdgeInsets.all(28.0),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.end,
@@ -155,22 +167,25 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         Text(
                           "© Sahdeep Singh, ",
-                          style: TextStyle(color: Colors.white, fontSize: 17),
+                          style:
+                          TextStyle(color: Colors.white, fontSize: 17),
                         ),
                         Text(
                           "Build with ❤ and ",
-                          style: TextStyle(color: Colors.white, fontSize: 17),
+                          style:
+                          TextStyle(color: Colors.white, fontSize: 17),
                         ),
                         HoverableButton(
                           height: 30,
                           width: 70,
                           onPressed: () {
-                            js.context.callMethod(
-                                "open", ["https://github.com/flutter/flutter"]);
+                            js.context.callMethod("open",
+                                ["https://github.com/flutter/flutter"]);
                           },
                           child: Text(
                             "Flutter",
-                            style: TextStyle(color: Colors.white, fontSize: 17),
+                            style: TextStyle(
+                                color: Colors.white, fontSize: 17),
                           ),
                         )
                       ],
