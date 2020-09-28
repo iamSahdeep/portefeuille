@@ -14,7 +14,7 @@ class ProjectsData {
       shortDescription:
           "Liquid swipe is the revealing clipper to bring off amazing liquid like swipe to stacked Container",
       longDescription:
-          """Liquid Swipe provides great animation without much boilerplate code. The implementation is simple and easy to use with a list of Containers and can be applied to almost any widget within them. \n\nLiquid Swipe package would be quite useful for anyone who wants to add some kind of out-of-the-box animation to their app.\n\nAn animation like this is otherwise quite complex and time-consuming to design but this package makes it simple to implement within a matter of minutes.""",
+          """Liquid Swipe provides great animation without much boilerplate code. The implementation is simple and easy to use with a list of Containers and can be applied to almost any widget within them. \n\nLiquid Swipe package would be quite useful for anyone who wants to add some kind of out-of-the-box animation to their app.\n\nAn animation like this is otherwise quite complex and time-consuming to design but this package makes it simple to implement within a matter of minutes. \n\n More over the development includes usage of Custom Clippers and Provider as state management.""",
       githubLink: "https://github.com/iamSahdeep/liquid_swipe_flutter",
       playstoreLink: "",
       yearAndTech: ["2019", "Flutter", "Dart"],
@@ -29,7 +29,7 @@ class ProjectsData {
       shortDescription:
       "My Personal Portfolio website that you are currently using.",
       longDescription:
-      """Liquid Swipe provides great animation without much boilerplate code. The implementation is simple and easy to use with a list of Containers and can be applied to almost any widget within them. \n\n Liquid Swipe package would be quite useful for anyone who wants to add some kind of out-of-the-box animation to their app.\nAn animation like this is otherwise quite complex and time-consuming to design but this package makes it simple to implement within a matter of minutes.""",
+      """Complete portfolio website made with Flutter includes amazing animation and effects. In this I have created some custom cursor with a trick in flutter, more details can be found in one of the blogs.\n\n Its responsive for mobile view as well, and loaded with some cool features, which can be experienced during its usage. Its still in development and some of the UI are just simple pages. \n\nIts open sourced so you can easily make changes and use it as your portfolio. Don't forgot to give credit. :)""",
       githubLink: "https://github.com/iamSahdeep/portefeuille",
       playstoreLink: "",
       yearAndTech: ["2019", "Flutter", "Dart", "dartToJs"],
@@ -55,11 +55,10 @@ class ProjectsData {
       title: 'Bop Music Player',
       slug: 'a-music-player',
       scrollLength: 700.0,
-      banner: "images/bop_banner.jpg",
+      banner: "images/bop_banner.png",
       shortDescription:
-      "Liquid swipe is the revealing clipper to bring off amazing liquid like swipe to stacked Container",
-      longDescription:
-      """Liquid Swipe provides great animation without much boilerplate code. The implementation is simple and easy to use with a list of Containers and can be applied to almost any widget within them. \n\n Liquid Swipe package would be quite useful for anyone who wants to add some kind of out-of-the-box animation to their app.\nAn animation like this is otherwise quite complex and time-consuming to design but this package makes it simple to implement within a matter of minutes.""",
+      "An Android Music Player using default MediaPlayer and MediaScanner",
+      longDescription: """A lightweight, powerful, fast and open source Music Player with elegant and stylish UI design, in just 5MB. This audio player supports almost all types audio or music formats. Easily play music by genres , albums , artists , songs.\n\nMusic player was designed to bring better experience to user when they listen to music. It scans all music automatically and group them by title, artist, album, genre. Easy to find the song you want with search option. Supports audio equalizer to improves music sound, you can customize with own style.""",
       githubLink: "https://github.com/iamSahdeep/bop",
       playstoreLink: "",
       yearAndTech: ["2019", "Android", "Java", "Services"],
@@ -72,9 +71,9 @@ class ProjectsData {
       scrollLength: 500.0,
       banner: "images/visualizers_banner.png",
       shortDescription:
-      "Liquid swipe is the revealing clipper to bring off amazing liquid like swipe to stacked Container",
+      "A Flutter plugin to Visualize the audio being played (only android).",
       longDescription:
-      """Liquid Swipe provides great animation without much boilerplate code. The implementation is simple and easy to use with a list of Containers and can be applied to almost any widget within them. \n\n Liquid Swipe package would be quite useful for anyone who wants to add some kind of out-of-the-box animation to their app.\nAn animation like this is otherwise quite complex and time-consuming to design but this package makes it simple to implement within a matter of minutes.""",
+      """A Flutter based Audio Visualizer made using native android and platform channels for connects. In this I have used the Androids Visualizer class to get wave data from the audio with is currently being played through MediaPlayer.\n\n. Then that wave data is used to from wave forms, for which we need to use Custom Painter or Custom Clipper in flutter which renders that waveforms according to data provided. I have discontinued this plugin due to lack of development :(""",
       githubLink: "https://github.com/iamSahdeep/FlutterVisualizers",
       playstoreLink: "",
       yearAndTech: ["2019", "Flutter", "Dart", "Android", "Java"],
@@ -87,9 +86,8 @@ class ProjectsData {
       scrollLength: 1000.0,
       banner: "images/fuber_banner.png",
       shortDescription:
-      "Liquid swipe is the revealing clipper to bring off amazing liquid like swipe to stacked Container",
-      longDescription:
-      """Liquid Swipe provides great animation without much boilerplate code. The implementation is simple and easy to use with a list of Containers and can be applied to almost any widget within them. \n\n Liquid Swipe package would be quite useful for anyone who wants to add some kind of out-of-the-box animation to their app.\nAn animation like this is otherwise quite complex and time-consuming to design but this package makes it simple to implement within a matter of minutes.""",
+      "A Flutter based taxi booking app (dummy) using provider, similar to apps like Ola/Uber",
+      longDescription: """This is the clone to the App based Taxi booking Services like Uber using Flutter and Provider as a state management in it. Its unstable and i am not maintaining it. You can find some useful methods inside it, some of them are used as answers on stackoverflow by me, mostly related to maps in flutter.\n\nYou can also learn about maintaining the Complex UI on single screen and animations and there visibility using Provider as a State manager. \n\nEvery data provided like cabs, cost etc are dummy but configured to easily apply the Api's with minor changes to it.""",
       githubLink: "https://github.com/iamSahdeep/fu_uber",
       playstoreLink: "",
       yearAndTech: ["2019", "Flutter", "Dart", "Map SDK"],

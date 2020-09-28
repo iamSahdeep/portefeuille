@@ -48,7 +48,7 @@ class _ProjectDetailsPageState extends State<ProjectDetailsPage> {
                     padding: const EdgeInsets.all(50.0),
                     child: Image.asset(
                       widget.project.banner,
-                      fit: BoxFit.cover,
+                      fit: BoxFit.fitWidth,
                       gaplessPlayback: true,
                       width: Utils.getWidth(context) / 1.1,
                       height: Utils.getWidth(context) / 3,

@@ -5,8 +5,8 @@
   "assets/fonts/SharpGrotesk.ttf": [
     "assets/fonts/SharpGrotesk.ttf"
   ],
-  "assets/images/bop_banner.jpg": [
-    "assets/images/bop_banner.jpg"
+  "assets/images/bop_banner.png": [
+    "assets/images/bop_banner.png"
   ],
   "packages/font_awesome_flutter/lib/fonts/fa-brands-400.ttf": [
     "packages/font_awesome_flutter/lib/fonts/fa-brands-400.ttf"
@@ -25,9 +25,6 @@
   ],
   "assets/images/logo.png": [
     "assets/images/logo.png"
-  ],
-  "assets/images/me.png": [
-    "assets/images/me.png"
   ],
   "assets/images/mine_banner.png": [
     "assets/images/mine_banner.png"
