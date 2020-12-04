@@ -3,7 +3,7 @@ import 'package:sahdeepsinghflutter/CORE/DataModels/ProjectModel.dart';
 import 'package:sahdeepsinghflutter/UI/Screens/PageNotFound.dart';
 import 'package:sahdeepsinghflutter/UI/Screens/ProjectDetailsPage.dart';
 
-class ProjectsData {
+class PersonalData {
   static const List<Project> allProjects = [
     Project(
       id: 1,
@@ -103,4 +103,14 @@ class ProjectsData {
     }
     return PageNotFound();
   }
+
+  static const twitterURL = "https://twitter.com/iamSahdeep";
+  static const facebookURL = "https://twitter.com/iamSahdeep";
+  static const githubURL = "https://twitter.com/iamSahdeep";
+  static const linkedinURL = "https://twitter.com/iamSahdeep";
+  static const codepenURL = "https://twitter.com/iamSahdeep";
+  static const email = "sahdeepsingh98@gmail.com";
+  static const flutterURL = "https://twitter.com/iamSahdeep";
+  static const devtoURL = "https://twitter.com/iamSahdeep";
+  static const instaURL = "https://twitter.com/iamSahdeep";
 }

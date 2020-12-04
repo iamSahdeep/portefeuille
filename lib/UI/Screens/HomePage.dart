@@ -1,15 +1,15 @@
-import 'dart:js' as js;
-
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/src/rendering/mouse_cursor.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:sahdeepsinghflutter/CORE/Data/SiteData.dart';
 import 'package:sahdeepsinghflutter/CORE/ProviderModels/CursorProvider.dart';
 import 'package:sahdeepsinghflutter/CORE/Utils.dart';
 import 'package:sahdeepsinghflutter/UI/Others/CustomDrawer.dart';
 import 'package:sahdeepsinghflutter/UI/Others/HomeScreenCursor.dart';
 import 'package:sahdeepsinghflutter/UI/Others/HoverableButton.dart';
+import 'package:sahdeepsinghflutter/UI/Others/RippleCircularAnimation.dart';
 
 class HomePage extends StatefulWidget {
   static const String TAG = "HomePage";
@@ -60,6 +60,10 @@ class _HomePageState extends State<HomePage> {
                     uiModel.pointerPosition.dy, context),
                 child: HomeScreenCursor(),
               ),
+              Positioned(
+                  right: -120 + (Utils.isMobileView(context) ? 10 : 15.0),
+                  top: -120 + (Utils.isMobileView(context) ? 10 : 15.0),
+                  child: RippleAnimation()),
               Align(
                 alignment: Alignment.topLeft,
                 child: Padding(
@@ -125,8 +129,7 @@ class _HomePageState extends State<HomePage> {
                               size: 25,
                             ),
                             onPressed: () {
-                              js.context.callMethod(
-                                  "open", ["https://twitter.com/iamSahdeep"]);
+                              Utils.launchURL(PersonalData.twitterURL);
                             }),
                         HoverableButton(
                             height: 40,
@@ -137,8 +140,7 @@ class _HomePageState extends State<HomePage> {
                               size: 25,
                             ),
                             onPressed: () {
-                              js.context.callMethod(
-                                  "open", ["https://github.com/iamSahdeep"]);
+                              Utils.launchURL(PersonalData.githubURL);
                             }),
                         HoverableButton(
                             height: 40,
@@ -149,8 +151,7 @@ class _HomePageState extends State<HomePage> {
                               size: 25,
                             ),
                             onPressed: () {
-                              js.context.callMethod("open",
-                                  ["https://www.linkedin.com/in/iamsahdeep"]);
+                              Utils.launchURL(PersonalData.linkedinURL);
                             }),
                       ],
                     )),
@@ -179,8 +180,7 @@ class _HomePageState extends State<HomePage> {
                           height: 30,
                           width: 70,
                           onPressed: () {
-                            js.context.callMethod("open",
-                                ["https://github.com/flutter/flutter"]);
+                            Utils.launchURL(PersonalData.flutterURL);
                           },
                           child: Text(
                             "Flutter",

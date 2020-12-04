@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sahdeepsinghflutter/CORE/Data/ProjectsData.dart';
+import 'package:sahdeepsinghflutter/CORE/Data/SiteData.dart';
 import 'package:sahdeepsinghflutter/CORE/DataModels/Path.dart';
 import 'package:sahdeepsinghflutter/UI/Screens/AboutPage.dart';
 import 'package:sahdeepsinghflutter/UI/Screens/BlogsPage.dart';
@@ -18,7 +18,7 @@ class RouteConfiguration {
   static List<Path> paths = [
     Path(
       r'^' + ProjectDetailsPage.Route + r'/([\w-]+)$',
-      (context, match) => ProjectsData.getProjectPage(match),
+      (context, match) => PersonalData.getProjectPage(match),
     ),
     Path(
       r'^' + ProjectPage.Route,

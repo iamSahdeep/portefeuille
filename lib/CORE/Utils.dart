@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Utils {
   static double getHeight(BuildContext context) {
@@ -37,5 +38,22 @@ class Utils {
   {
     double scale = (newEnd - newStart) / (originalEnd - originalStart);
     return (newStart + ((value - originalStart) * scale));
+  }
+
+  static launchURL(String url) async {
+    print(url);
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
+  static launchEmail(String url) async {
+    var _emailLaunchUri = Uri(
+      scheme: 'mailto',
+      path: url,
+    );
+    launchURL(_emailLaunchUri.toString());
   }
 }

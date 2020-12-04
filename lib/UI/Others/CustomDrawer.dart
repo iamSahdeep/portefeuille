@@ -1,9 +1,8 @@
-import 'dart:js' as js;
-
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:sahdeepsinghflutter/CORE/Data/SiteData.dart';
 import 'package:sahdeepsinghflutter/CORE/ProviderModels/CursorProvider.dart';
 import 'package:sahdeepsinghflutter/CORE/Utils.dart';
 import 'package:sahdeepsinghflutter/UI/Others/DefaultCursor.dart';
@@ -204,8 +203,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                               size: 30,
                             ),
                             onPressed: () {
-                              js.context.callMethod(
-                                  "open", ["https://twitter.com/iamSahdeep"]);
+                              Utils.launchURL(PersonalData.twitterURL);
                             }),
                       ),
                       Padding(
@@ -219,8 +217,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                               size: 30,
                             ),
                             onPressed: () {
-                              js.context.callMethod(
-                                  "open", ["https://github.com/iamSahdeep"]);
+                              Utils.launchURL(PersonalData.githubURL);
                             }),
                       ),
                       Padding(
@@ -234,8 +231,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                               size: 30,
                             ),
                             onPressed: () {
-                              js.context.callMethod("open",
-                                  ["https://www.linkedin.com/in/iamsahdeep"]);
+                              Utils.launchURL(PersonalData.linkedinURL);
                             }),
                       ),
                       Padding(
@@ -249,8 +245,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                               size: 30,
                             ),
                             onPressed: () {
-                              js.context.callMethod("open",
-                                  ["https://www.codepen.io/iamsahdeep"]);
+                              Utils.launchURL(PersonalData.codepenURL);
                             }),
                       ),
                     ],

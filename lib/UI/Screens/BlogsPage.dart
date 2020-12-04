@@ -1,9 +1,8 @@
-import 'dart:js' as js;
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
+import 'package:sahdeepsinghflutter/CORE/Data/SiteData.dart';
 import 'package:sahdeepsinghflutter/CORE/ProviderModels/CursorProvider.dart';
 import 'package:sahdeepsinghflutter/CORE/Utils.dart';
 import 'package:sahdeepsinghflutter/UI/Others/CustomDrawer.dart';
@@ -94,8 +93,7 @@ class BlogsPage extends StatelessWidget {
                     color: Colors.white,
                     iconSize: 50,
                     onPressed: () {
-                      js.context.callMethod(
-                          "open", ["https://www.dev.to/iamsahdeep"]);
+                      Utils.launchURL(PersonalData.devtoURL);
                     },
                   ),
                 ),

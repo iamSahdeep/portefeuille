@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
-import 'package:sahdeepsinghflutter/CORE/Data/ProjectsData.dart';
+import 'package:sahdeepsinghflutter/CORE/Data/SiteData.dart';
 import 'package:sahdeepsinghflutter/CORE/ProviderModels/CursorProvider.dart';
 import 'package:sahdeepsinghflutter/CORE/ProviderModels/ProjectProvider.dart';
 import 'package:sahdeepsinghflutter/CORE/Utils.dart';
@@ -39,7 +39,7 @@ class _ProjectPageState extends State<ProjectPage> {
 
   @override
   didChangeDependencies() {
-    ProjectsData.allProjects.forEach((element) {
+    PersonalData.allProjects.forEach((element) {
       precacheImage(AssetImage(element.banner), context);
     });
     super.didChangeDependencies();
@@ -108,11 +108,11 @@ class _ProjectPageState extends State<ProjectPage> {
                               child: Padding(
                                 padding: const EdgeInsets.all(10.0),
                                 child: Hero(
-                                  tag: ProjectsData
+                                  tag: PersonalData
                                       .allProjects[proModel.currentProjectIndex]
                                       .slug,
                                   child: Image.asset(
-                                    ProjectsData
+                                    PersonalData
                                         .allProjects[
                                     proModel.currentProjectIndex]
                                         .banner,
@@ -146,7 +146,7 @@ class _ProjectPageState extends State<ProjectPage> {
                                   onTap: () {
                                     Navigator.of(context).pushNamed(
                                       ProjectDetailsPage.routeFromSlug(
-                                          ProjectsData
+                                          PersonalData
                                               .allProjects[
                                                   proModel.currentProjectIndex]
                                               .slug),
@@ -182,7 +182,7 @@ class _ProjectPageState extends State<ProjectPage> {
                               ? EdgeInsets.only(top: 30)
                               : const EdgeInsets.all(8.0),
                           child: Text(
-                              ProjectsData
+                              PersonalData
                                   .allProjects[proModel.currentProjectIndex]
                                   .title,
                               textAlign: TextAlign.center,
@@ -194,7 +194,7 @@ class _ProjectPageState extends State<ProjectPage> {
                     Padding(
                       padding: const EdgeInsets.all(20.0),
                       child: Text(
-                          ProjectsData.allProjects[proModel.currentProjectIndex]
+                          PersonalData.allProjects[proModel.currentProjectIndex]
                               .shortDescription,
                           textAlign: TextAlign.center,
                           style: TextStyle(
@@ -237,7 +237,7 @@ class _ProjectPageState extends State<ProjectPage> {
     List<Widget> data = [];
     final proModel = Provider.of<ProjectProvider>(context);
     double width = 0;
-    ProjectsData.allProjects.forEach((element) {
+    PersonalData.allProjects.forEach((element) {
       bool temp = (scrollOffset + Utils.getHeight(context) / 2) >= width &&
           scrollOffset + Utils.getHeight(context) / 2 <
               width + element.scrollLength + 40;
@@ -262,7 +262,7 @@ class _ProjectPageState extends State<ProjectPage> {
 
   double getAllItemsWidth() {
     double height = 0;
-    ProjectsData.allProjects.forEach((element) {
+    PersonalData.allProjects.forEach((element) {
       height += (element.scrollLength + 40);
     });
     return height;

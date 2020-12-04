@@ -1,5 +1,3 @@
-import 'dart:js' as js;
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -213,7 +211,7 @@ class _ProjectDetailsPageState extends State<ProjectDetailsPage> {
                 size: 30,
               ),
               onPressed: () {
-                js.context.callMethod("open", [project.githubLink]);
+                Utils.launchURL(project.githubLink);
               }),
         ),
       );
@@ -232,7 +230,7 @@ class _ProjectDetailsPageState extends State<ProjectDetailsPage> {
                 size: 30,
               ),
               onPressed: () {
-                js.context.callMethod("open", [project.playstoreLink]);
+                Utils.launchURL(project.playstoreLink);
               }),
         ),
       );

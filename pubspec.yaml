@@ -26,6 +26,7 @@ dependencies:
   provider:
   font_awesome_flutter:
   flutter_circular_text:
+  url_launcher:
 
 
   # The following adds the Cupertino Icons font to your application.

@@ -1,11 +1,10 @@
-import 'dart:js' as js;
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
+import 'package:sahdeepsinghflutter/CORE/Data/SiteData.dart';
 import 'package:sahdeepsinghflutter/CORE/ProviderModels/CursorProvider.dart';
 import 'package:sahdeepsinghflutter/CORE/Utils.dart';
 import 'package:sahdeepsinghflutter/UI/Others/DefaultCursor.dart';
@@ -119,10 +118,8 @@ class AboutPage extends StatelessWidget {
                                                   text: "Instagram",
                                               recognizer: TapGestureRecognizer()
                                                 ..onTap = () {
-                                                  js.context.callMethod(
-                                                      "open", [
-                                                    "https://www.instagram.com/iamsahdeep"
-                                                  ]);
+                                                  Utils.launchURL(
+                                                      PersonalData.instaURL);
                                                 },
                                               style: TextStyle(
                                                   decoration: TextDecoration
@@ -132,11 +129,9 @@ class AboutPage extends StatelessWidget {
                                                   text: "Twitter",
                                                   recognizer: TapGestureRecognizer()
                                                     ..onTap = () {
-                                                      js.context.callMethod(
-                                                          "open", [
-                                                        "https://www.twitter.com/iamsahdeep"
-                                                      ]);
-                                                    },
+                                                      Utils.launchURL(
+                                                      PersonalData.twitterURL);
+                                                },
                                                   style: TextStyle(
                                                       decoration:
                                                       TextDecoration.underline))
