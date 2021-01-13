@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:sahdeepsinghflutter/CORE/Helpers/RouteConfiguration.dart';
-import 'package:sahdeepsinghflutter/CORE/ProviderModels/CursorProvider.dart';
-import 'package:sahdeepsinghflutter/CORE/ProviderModels/ProjectProvider.dart';
-import 'package:sahdeepsinghflutter/UI/Screens/HomePage.dart';
-import 'package:sahdeepsinghflutter/UI/Screens/PageNotFound.dart';
+import 'package:portefeuille/CORE/Helpers/RouteConfiguration.dart';
+import 'package:portefeuille/CORE/ProviderModels/CursorProvider.dart';
+import 'package:portefeuille/CORE/ProviderModels/ProjectProvider.dart';
+import 'package:portefeuille/UI/Screens/HomePage.dart';
+import 'package:portefeuille/UI/Screens/PageNotFound.dart';
 
 void main() {
   runApp(MyApp());

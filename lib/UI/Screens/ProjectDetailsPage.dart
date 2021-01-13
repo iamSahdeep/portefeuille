@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:sahdeepsinghflutter/CORE/DataModels/ProjectModel.dart';
-import 'package:sahdeepsinghflutter/CORE/Utils.dart';
-import 'package:sahdeepsinghflutter/UI/Others/HoverableButton.dart';
+import 'package:portefeuille/CORE/DataModels/ProjectModel.dart';
+import 'package:portefeuille/CORE/Utils.dart';
+import 'package:portefeuille/UI/Others/HoverableButton.dart';
 
 class ProjectDetailsPage extends StatefulWidget {
   static const String TAG = "ProjectDetailsPage";

@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
-import 'package:sahdeepsinghflutter/CORE/Data/SiteData.dart';
-import 'package:sahdeepsinghflutter/CORE/ProviderModels/CursorProvider.dart';
-import 'package:sahdeepsinghflutter/CORE/Utils.dart';
-import 'package:sahdeepsinghflutter/UI/Others/DefaultCursor.dart';
-import 'package:sahdeepsinghflutter/UI/Others/HoverableButton.dart';
-import 'package:sahdeepsinghflutter/UI/Screens/AboutPage.dart';
-import 'package:sahdeepsinghflutter/UI/Screens/BlogsPage.dart';
-import 'package:sahdeepsinghflutter/UI/Screens/ContactPage.dart';
-import 'package:sahdeepsinghflutter/UI/Screens/ProjectsPage.dart';
+import 'package:portefeuille/CORE/Data/SiteData.dart';
+import 'package:portefeuille/CORE/ProviderModels/CursorProvider.dart';
+import 'package:portefeuille/CORE/Utils.dart';
+import 'package:portefeuille/UI/Others/DefaultCursor.dart';
+import 'package:portefeuille/UI/Others/HoverableButton.dart';
+import 'package:portefeuille/UI/Screens/AboutPage.dart';
+import 'package:portefeuille/UI/Screens/BlogsPage.dart';
+import 'package:portefeuille/UI/Screens/ContactPage.dart';
+import 'package:portefeuille/UI/Screens/ProjectsPage.dart';
 
 class CustomDrawer extends StatefulWidget {
   @override

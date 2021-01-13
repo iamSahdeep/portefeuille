@@ -2,11 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
-import 'package:sahdeepsinghflutter/CORE/Data/SiteData.dart';
-import 'package:sahdeepsinghflutter/CORE/ProviderModels/CursorProvider.dart';
-import 'package:sahdeepsinghflutter/CORE/Utils.dart';
-import 'package:sahdeepsinghflutter/UI/Others/CustomDrawer.dart';
-import 'package:sahdeepsinghflutter/UI/Others/HoverableButton.dart';
+import 'package:portefeuille/CORE/Data/SiteData.dart';
+import 'package:portefeuille/CORE/ProviderModels/CursorProvider.dart';
+import 'package:portefeuille/CORE/Utils.dart';
+import 'package:portefeuille/UI/Others/CustomDrawer.dart';
+import 'package:portefeuille/UI/Others/HoverableButton.dart';
 
 class BlogsPage extends StatelessWidget {
   static const String Route = "/blogs";

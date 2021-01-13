@@ -5,11 +5,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
-import 'package:sahdeepsinghflutter/CORE/Data/SiteData.dart';
-import 'package:sahdeepsinghflutter/CORE/ProviderModels/CursorProvider.dart';
-import 'package:sahdeepsinghflutter/CORE/Utils.dart';
-import 'package:sahdeepsinghflutter/UI/Others/CustomDrawer.dart';
-import 'package:sahdeepsinghflutter/UI/Others/HoverableButton.dart';
+import 'package:portefeuille/CORE/Data/SiteData.dart';
+import 'package:portefeuille/CORE/ProviderModels/CursorProvider.dart';
+import 'package:portefeuille/CORE/Utils.dart';
+import 'package:portefeuille/UI/Others/CustomDrawer.dart';
+import 'package:portefeuille/UI/Others/HoverableButton.dart';
 
 class ContactPage extends StatefulWidget {
   static const String Route = "/contact";
@@ -182,7 +182,7 @@ class _ContactPageState extends State<ContactPage> {
                       child: Padding(
                         padding: const EdgeInsets.symmetric(vertical: 48.0),
                         child: GestureDetector(
-                            child: Text("sahdeepsingh98@gmail.com >",
+                            child: Text("sahdeepsingh98@gmail.com",
                                 style: TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.normal)),

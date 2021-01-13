@@ -3,30 +3,19 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/src/rendering/mouse_cursor.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
-import 'package:sahdeepsinghflutter/CORE/Data/SiteData.dart';
-import 'package:sahdeepsinghflutter/CORE/ProviderModels/CursorProvider.dart';
-import 'package:sahdeepsinghflutter/CORE/Utils.dart';
-import 'package:sahdeepsinghflutter/UI/Others/CustomDrawer.dart';
-import 'package:sahdeepsinghflutter/UI/Others/HomeScreenCursor.dart';
-import 'package:sahdeepsinghflutter/UI/Others/HoverableButton.dart';
-import 'package:sahdeepsinghflutter/UI/Others/RippleCircularAnimation.dart';
+import 'package:portefeuille/CORE/Data/SiteData.dart';
+import 'package:portefeuille/CORE/ProviderModels/CursorProvider.dart';
+import 'package:portefeuille/CORE/Utils.dart';
+import 'package:portefeuille/UI/Others/CustomDrawer.dart';
+import 'package:portefeuille/UI/Others/HomeScreenCursor.dart';
+import 'package:portefeuille/UI/Others/HoverableButton.dart';
+import 'package:portefeuille/UI/Others/RippleCircularAnimation.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   static const String TAG = "HomePage";
   static const String Route = "/";
-
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
   final globalKey = GlobalKey<ScaffoldState>();
-
-  @override
-  didChangeDependencies() {
-    super.didChangeDependencies();
-  }
-
+  
   @override
   Widget build(BuildContext context) {
     final uiModel = Provider.of<CursorProvider>(context);

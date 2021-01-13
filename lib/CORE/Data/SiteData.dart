@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:sahdeepsinghflutter/CORE/DataModels/ProjectModel.dart';
-import 'package:sahdeepsinghflutter/UI/Screens/PageNotFound.dart';
-import 'package:sahdeepsinghflutter/UI/Screens/ProjectDetailsPage.dart';
+import 'package:portefeuille/CORE/DataModels/ProjectModel.dart';
+import 'package:portefeuille/UI/Screens/PageNotFound.dart';
+import 'package:portefeuille/UI/Screens/ProjectDetailsPage.dart';
 
 class PersonalData {
   static const List<Project> allProjects = [
@@ -105,12 +105,12 @@ class PersonalData {
   }
 
   static const twitterURL = "https://twitter.com/iamSahdeep";
-  static const facebookURL = "https://twitter.com/iamSahdeep";
-  static const githubURL = "https://twitter.com/iamSahdeep";
-  static const linkedinURL = "https://twitter.com/iamSahdeep";
-  static const codepenURL = "https://twitter.com/iamSahdeep";
+  static const facebookURL = "https://fb.com/iamSahdeep";
+  static const githubURL = "https://github.com/iamSahdeep";
+  static const linkedinURL = "https://linkedin.com/in/iamSahdeep";
+  static const codepenURL = "https://codepen.io/iamSahdeep";
   static const email = "sahdeepsingh98@gmail.com";
-  static const flutterURL = "https://twitter.com/iamSahdeep";
-  static const devtoURL = "https://twitter.com/iamSahdeep";
-  static const instaURL = "https://twitter.com/iamSahdeep";
+  static const flutterURL = "https://flutter.dev";
+  static const devtoURL = "https://dev.to/iamSahdeep";
+  static const instaURL = "https://instagram.com/iamSahdeep";
 }

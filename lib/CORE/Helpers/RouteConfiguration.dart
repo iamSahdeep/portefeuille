@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:sahdeepsinghflutter/CORE/Data/SiteData.dart';
-import 'package:sahdeepsinghflutter/CORE/DataModels/Path.dart';
-import 'package:sahdeepsinghflutter/UI/Screens/AboutPage.dart';
-import 'package:sahdeepsinghflutter/UI/Screens/BlogsPage.dart';
-import 'package:sahdeepsinghflutter/UI/Screens/ContactPage.dart';
-import 'package:sahdeepsinghflutter/UI/Screens/HomePage.dart';
-import 'package:sahdeepsinghflutter/UI/Screens/PageNotFound.dart';
-import 'package:sahdeepsinghflutter/UI/Screens/ProjectDetailsPage.dart';
-import 'package:sahdeepsinghflutter/UI/Screens/ProjectsPage.dart';
+import 'package:portefeuille/CORE/Data/SiteData.dart';
+import 'package:portefeuille/CORE/DataModels/Path.dart';
+import 'package:portefeuille/UI/Screens/AboutPage.dart';
+import 'package:portefeuille/UI/Screens/BlogsPage.dart';
+import 'package:portefeuille/UI/Screens/ContactPage.dart';
+import 'package:portefeuille/UI/Screens/HomePage.dart';
+import 'package:portefeuille/UI/Screens/PageNotFound.dart';
+import 'package:portefeuille/UI/Screens/ProjectDetailsPage.dart';
+import 'package:portefeuille/UI/Screens/ProjectsPage.dart';
 
 class RouteConfiguration {
   /// List of [Path] to for route matching. When a named route is pushed with
