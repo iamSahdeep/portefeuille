@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:portefeuille/CORE/ProviderModels/CursorProvider.dart';
+import 'package:provider/provider.dart';
 
 typedef OnPressed = void Function();
 
@@ -19,30 +21,24 @@ class HoverableButton extends StatefulWidget {
 }
 
 class _HoverableButtonState extends State<HoverableButton> {
-  bool isHovered = false;
-
   @override
   Widget build(BuildContext context) {
+    final cursorProvider = Provider.of<CursorProvider>(context);
     return GestureDetector(
       child: MouseRegion(
         cursor: SystemMouseCursors.none,
         onEnter: (_) {
-          setState(() {
-            isHovered = true;
-          });
+          cursorProvider.setIsHoveringLinks(true);
         },
         onExit: (_) {
-          setState(() {
-            isHovered = false;
-          });
+          cursorProvider.setIsHoveringLinks(false);
         },
         child: Container(
           height: widget.height,
           width: widget.width,
           child: Center(
             child: AnimatedAlign(
-              alignment:
-                  !isHovered ? Alignment.bottomCenter : Alignment.topCenter,
+              alignment: Alignment.bottomCenter,
               duration: const Duration(milliseconds: 400),
               child: widget.child,
             ),

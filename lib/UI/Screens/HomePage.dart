@@ -37,8 +37,8 @@ class HomePage extends StatelessWidget {
                   left: uiModel.pointerPosition.dx,
                   top: uiModel.pointerPosition.dy,
                   child: Container(
-                    width: 3,
-                    height: 3,
+                    width: 4,
+                    height: 4,
                     color: Colors.white,
                   )),
               AnimatedPositioned(

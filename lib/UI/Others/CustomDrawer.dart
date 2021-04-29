@@ -35,8 +35,8 @@ class _CustomDrawerState extends State<CustomDrawer> {
           children: [
             AnimatedPositioned(
               duration: const Duration(milliseconds: 300),
-              left: uiModel.pointerPosition.dx - 100,
-              top: uiModel.pointerPosition.dy - 100,
+              left: uiModel.pointerPosition.dx - (uiModel.isHoveringLinks ? 150 :100),
+              top: uiModel.pointerPosition.dy - (uiModel.isHoveringLinks ? 150 :100),
               child: DefaultCursor(),
             ),
             AnimatedPositioned(
@@ -90,6 +90,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                         duration: Duration(milliseconds: 200),
                         child: Text("About".toUpperCase()),
                         style: TextStyle(
+                          fontFamily: "sharpgro",
                             color: uiModel.currentHoverItem == 1
                                 ? Colors.white
                                 : Colors.black,
@@ -117,6 +118,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                         duration: Duration(milliseconds: 200),
                         child: Text("Projects".toUpperCase()),
                         style: TextStyle(
+                            fontFamily: "sharpgro",
                             color: uiModel.currentHoverItem == 2
                                 ? Colors.white
                                 : Colors.black,
@@ -144,6 +146,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                         duration: Duration(milliseconds: 200),
                         child: Text("Blogs".toUpperCase()),
                         style: TextStyle(
+                            fontFamily: "sharpgro",
                             color: uiModel.currentHoverItem == 3
                                 ? Colors.white
                                 : Colors.black,
@@ -171,6 +174,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                         duration: Duration(milliseconds: 200),
                         child: Text("Contact".toUpperCase()),
                         style: TextStyle(
+                            fontFamily: "sharpgro",
                             color: uiModel.currentHoverItem == 4
                                 ? Colors.white
                                 : Colors.black,

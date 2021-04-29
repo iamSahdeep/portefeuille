@@ -38,4 +38,11 @@ class CursorProvider extends ChangeNotifier {
     isHoveringMoreDetails = da;
     notifyListeners();
   }
+
+  bool isHoveringLinks = false;
+
+  setIsHoveringLinks(bool boom){
+    isHoveringLinks = boom;
+    notifyListeners();
+  }
 }

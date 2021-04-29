@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_circular_text/circular_text.dart';
+import 'package:portefeuille/CORE/ProviderModels/CursorProvider.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreenCursor extends StatefulWidget {
   @override
@@ -32,6 +34,7 @@ class _HomeScreenCursorState extends State<HomeScreenCursor>
 
   @override
   Widget build(BuildContext context) {
+    final cursorProvider = Provider.of<CursorProvider>(context);
     return RotationTransition(
         turns: Tween(begin: 0.0, end: 1.0).animate(rotationController),
         child: SizedBox(
@@ -45,9 +48,10 @@ class _HomeScreenCursorState extends State<HomeScreenCursor>
                     text: Text(
                       "Sahdeep Singh".toUpperCase(),
                       style: TextStyle(
-                        fontSize: 30,
+                        fontSize: 28,
                         color: Colors.greenAccent,
                         fontWeight: FontWeight.bold,
+                        fontFamily: 'sharpgro',
                       ),
                     ),
                     space: 7,
@@ -55,39 +59,42 @@ class _HomeScreenCursorState extends State<HomeScreenCursor>
                   ),
                   TextItem(
                     text: Text(
-                      "Android Engineer".toUpperCase(),
+                      "Android &".toUpperCase(),
                       style: TextStyle(
-                        fontSize: 25,
+                        fontSize: 28,
                         color: Colors.blueAccent,
                         fontWeight: FontWeight.bold,
+                        fontFamily: 'sharpgro',
                       ),
                     ),
-                    space: 5,
-                    startAngle: 100,
+                    space: 7,
+                    startAngle: 98,
                   ),
                   TextItem(
                     text: Text(
-                      "Flutter Developer".toUpperCase(),
+                      "Flutter Engineer".toUpperCase(),
                       style: TextStyle(
-                        fontSize: 25,
+                        fontSize: 28,
                         color: Colors.amberAccent,
                         fontWeight: FontWeight.bold,
+                        fontFamily: 'sharpgro',
                       ),
                     ),
-                    space: 5,
-                    startAngle: 190,
+                    space: 7,
+                    startAngle: 170,
                   ),
                   TextItem(
                     text: Text(
-                      "Based in Delhi".toUpperCase(),
+                      "from Delhi".toUpperCase(),
                       style: TextStyle(
-                        fontSize: 25,
+                        fontSize: 28,
                         color: Colors.redAccent,
                         fontWeight: FontWeight.bold,
+                        fontFamily: 'sharpgro',
                       ),
                     ),
-                    space: 5,
-                    startAngle: -80,
+                    space: 7,
+                    startAngle: -73,
                   ),
                 ],
                 radius: 200,
@@ -96,22 +103,24 @@ class _HomeScreenCursorState extends State<HomeScreenCursor>
               ),
               Align(
                 alignment: Alignment.center,
-                child: Container(
+                child: AnimatedContainer(
+                  duration: const Duration(milliseconds: 400),
                   height: 240,
                   width: 240,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(120)),
                       border: Border.all(
-                          width: 15,
+                          width: cursorProvider.isHoveringLinks ? 5 : 15,
                           color: Colors.white,
                           style: BorderStyle.solid)),
                   child: Center(
-                      child: Text(
-                    "Hello",
+                      child: AnimatedDefaultTextStyle(
+                    duration: const Duration(milliseconds: 400),
+                    child: Text("Hola!"),
                     style: TextStyle(
                         color: Colors.white,
-                            fontSize: 60,
-                            fontWeight: FontWeight.bold),
+                        fontSize: cursorProvider.isHoveringLinks ? 80 : 60,
+                        fontWeight: FontWeight.bold),
                   )),
                 ),
               )

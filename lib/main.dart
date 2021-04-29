@@ -5,8 +5,10 @@ import 'package:portefeuille/CORE/ProviderModels/CursorProvider.dart';
 import 'package:portefeuille/CORE/ProviderModels/ProjectProvider.dart';
 import 'package:portefeuille/UI/Screens/HomePage.dart';
 import 'package:portefeuille/UI/Screens/PageNotFound.dart';
+import 'package:url_strategy/url_strategy.dart';
 
 void main() {
+  setPathUrlStrategy();
   runApp(MyApp());
 }
 

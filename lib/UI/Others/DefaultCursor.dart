@@ -1,23 +1,24 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:portefeuille/CORE/ProviderModels/CursorProvider.dart';
+import 'package:provider/provider.dart';
 
-class DefaultCursor extends StatelessWidget{
+class DefaultCursor extends StatelessWidget {
   final Color color;
 
   const DefaultCursor({Key key, this.color = Colors.black}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 200,
-      width: 200,
+    final uiModel = Provider.of<CursorProvider>(context);
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 400),
+      height: uiModel.isHoveringLinks ? 300 : 200,
+      width: uiModel.isHoveringLinks ? 300 : 200,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(100)),
-          border: Border.all(
-              width: 4,
-              color: color,
-              style: BorderStyle.solid)),
+          color: uiModel.isHoveringLinks ? color.withOpacity(0.2) : Colors.transparent,
+          borderRadius: BorderRadius.all(Radius.circular(uiModel.isHoveringLinks ? 150 :100)),
+          border: Border.all(width: 4, color: color, style: BorderStyle.solid)),
     );
   }
-
 }

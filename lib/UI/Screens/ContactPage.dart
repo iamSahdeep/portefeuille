@@ -32,7 +32,6 @@ class _ContactPageState extends State<ContactPage> {
     _iframeElement.src = 'https://form.typeform.com/to/Lmd3Ng1B';
     _iframeElement.style.border = 'none';
 
-    // ignore: undefined_prefixed_name
     ui.platformViewRegistry.registerViewFactory(
       'iframeElement',
       (int viewId) => _iframeElement,
@@ -49,7 +48,6 @@ class _ContactPageState extends State<ContactPage> {
     final uiModel = Provider.of<CursorProvider>(context);
 
     return Scaffold(
-      endDrawer: CustomDrawer(),
       backgroundColor: Color(0xff262626),
       key: globalKey,
       body: Stack(
@@ -79,27 +77,7 @@ class _ContactPageState extends State<ContactPage> {
               ),
             ),
           ),
-          Align(
-            alignment: Alignment.topRight,
-            child: Padding(
-              padding: EdgeInsets.all(Utils.isMobileView(context) ? 10 : 15.0),
-              child: HoverableButton(
-                width: 70,
-                height: 70,
-                onPressed: () {
-                  globalKey.currentState.openEndDrawer();
-                },
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Icon(
-                    Icons.menu,
-                    size: 50,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-            ),
-          ),
+
           Align(
             alignment: Alignment.topCenter,
             child: Padding(
@@ -137,17 +115,6 @@ class _ContactPageState extends State<ContactPage> {
                           style: TextStyle(
                               fontSize: 20, fontWeight: FontWeight.normal),
                           textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ),
-                    Center(
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 12.0, vertical: 20.0),
-                        child: Text(
-                          "PS : I am up for Opportunities in Android or Flutter",
-                          style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold),
                         ),
                       ),
                     ),
