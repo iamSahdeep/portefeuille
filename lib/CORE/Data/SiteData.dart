@@ -113,4 +113,5 @@ class PersonalData {
   static const flutterURL = "https://flutter.dev";
   static const devtoURL = "https://dev.to/iamSahdeep";
   static const instaURL = "https://instagram.com/iamSahdeep";
+  static const resumeURL ="https://docs.google.com/document/d/1AukhsobWRKjO2fIp71LV0jT5BgOZhhW0b_x7K70EBUU/edit#";
 }

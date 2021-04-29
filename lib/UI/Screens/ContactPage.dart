@@ -8,7 +8,6 @@ import 'package:provider/provider.dart';
 import 'package:portefeuille/CORE/Data/SiteData.dart';
 import 'package:portefeuille/CORE/ProviderModels/CursorProvider.dart';
 import 'package:portefeuille/CORE/Utils.dart';
-import 'package:portefeuille/UI/Others/CustomDrawer.dart';
 import 'package:portefeuille/UI/Others/HoverableButton.dart';
 
 class ContactPage extends StatefulWidget {
@@ -77,7 +76,6 @@ class _ContactPageState extends State<ContactPage> {
               ),
             ),
           ),
-
           Align(
             alignment: Alignment.topCenter,
             child: Padding(
