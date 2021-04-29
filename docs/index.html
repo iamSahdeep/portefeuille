@@ -16,6 +16,7 @@
 
     <title>Sahdeep Singh</title>
     <link href="manifest.json" rel="manifest">
+    <base href="/">
     <style>
     body {
 	 width: 100vw;
@@ -25,9 +26,9 @@
 	 display: flex;
 	 justify-content: center;
 	 align-items: center;
-	 align-content: center;
-}
- .loader {
+	 align-content: center
+	 }
+    .loader {
 	 width: 8vmax;
 	 height: 8vmax;
 	 border-right: 4px solid #fff;
@@ -72,8 +73,6 @@
 		 transform: rotate(0deg);
 	}
 }
-
-
     </style>
 </head>
 <body id="app-container">
@@ -86,12 +85,9 @@
 <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function () {
-        navigator.serviceWorker.register('flutter_service_worker.js?v=2892160566');
+        navigator.serviceWorker.register('flutter_service_worker.js?v=2200565721');
       });
     }
-
-
-
 
 
 </script>
