@@ -72,6 +72,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_wgl:
+    dependency: "direct main"
+    description:
+      path: "../flutter_wgl"
+      relative: true
+    source: path
+    version: "0.0.1"
   font_awesome_flutter:
     dependency: "direct main"
     description:

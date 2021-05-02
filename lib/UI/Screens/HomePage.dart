@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/src/rendering/mouse_cursor.dart';
@@ -11,17 +13,32 @@ import 'package:portefeuille/UI/Others/HomeScreenCursor.dart';
 import 'package:portefeuille/UI/Others/HoverableButton.dart';
 import 'package:portefeuille/UI/Others/RippleCircularAnimation.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   static const String TAG = "HomePage";
   static const String Route = "/";
+
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   final globalKey = GlobalKey<ScaffoldState>();
-  
+  @override
+  void initState() {
+    super.initState();
+    final loader = document.getElementsByClassName('loader');
+    if(loader.isNotEmpty) {
+      loader.first.remove();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final uiModel = Provider.of<CursorProvider>(context);
     return Scaffold(
       key: globalKey,
       endDrawer: CustomDrawer(),
+      backgroundColor: Colors.transparent,
       body: MouseRegion(
         cursor: SystemMouseCursors.none,
         onHover: (event) {

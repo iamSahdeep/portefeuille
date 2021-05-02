@@ -17,63 +17,8 @@
     <title>Sahdeep Singh</title>
     <link href="manifest.json" rel="manifest">
     <base href="/">
-    <style>
-    body {
-	 width: 100vw;
-	 height: 100vh;
-	 margin: 0;
-	 background-color: #2c2a2a;
-	 display: flex;
-	 justify-content: center;
-	 align-items: center;
-	 align-content: center
-	 }
-    .loader {
-	 width: 8vmax;
-	 height: 8vmax;
-	 border-right: 4px solid #fff;
-	 border-radius: 100%;
-	 z-index: -1;
-	 animation: spinRight 800ms linear infinite;
-}
- .loader:before, .loader:after {
-	 content: '';
-	 width: 6vmax;
-	 height: 6vmax;
-	 display: block;
-	 position: absolute;
-	 top: calc(50% - 3vmax);
-	 left: calc(50% - 3vmax);
-	 border-left: 3px solid #fff;
-	 border-radius: 100%;
-	 animation: spinLeft 800ms linear infinite;
-}
- .loader:after {
-	 width: 4vmax;
-	 height: 4vmax;
-	 top: calc(50% - 2vmax);
-	 left: calc(50% - 2vmax);
-	 border: 0;
-	 border-right: 2px solid #fff;
-	 animation: none;
-}
- @keyframes spinLeft {
-	 from {
-		 transform: rotate(0deg);
-	}
-	 to {
-		 transform: rotate(720deg);
-	}
-}
- @keyframes spinRight {
-	 from {
-		 transform: rotate(360deg);
-	}
-	 to {
-		 transform: rotate(0deg);
-	}
-}
-    </style>
+    <link rel="stylesheet" href="../style.css">
+
 </head>
 <body id="app-container">
 
@@ -90,7 +35,11 @@
     }
 
 
+
 </script>
+
+<canvas id="webgl-canvas" style="cursor:crosshair"></canvas>
+
 <script src="main.dart.js" type="application/javascript"></script>
 </body>
 </html>

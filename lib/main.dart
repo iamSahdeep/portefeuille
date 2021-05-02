@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portefeuille/webgl_animation.dart';
 import 'package:provider/provider.dart';
 import 'package:portefeuille/CORE/Helpers/RouteConfiguration.dart';
 import 'package:portefeuille/CORE/ProviderModels/CursorProvider.dart';
@@ -9,6 +10,7 @@ import 'package:url_strategy/url_strategy.dart';
 
 void main() {
   setPathUrlStrategy();
+  WGLAnimation.instance.build();
   runApp(MyApp());
 }
 
