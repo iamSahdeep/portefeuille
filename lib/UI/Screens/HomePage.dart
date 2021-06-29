@@ -2,7 +2,6 @@ import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter/src/rendering/mouse_cursor.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:portefeuille/CORE/Data/SiteData.dart';
@@ -12,6 +11,7 @@ import 'package:portefeuille/UI/Others/CustomDrawer.dart';
 import 'package:portefeuille/UI/Others/HomeScreenCursor.dart';
 import 'package:portefeuille/UI/Others/HoverableButton.dart';
 import 'package:portefeuille/UI/Others/RippleCircularAnimation.dart';
+import 'package:seo_renderer/renderers/link_renderer.dart';
 
 class HomePage extends StatefulWidget {
   static const String TAG = "HomePage";
@@ -126,39 +126,51 @@ class _HomePageState extends State<HomePage> {
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        HoverableButton(
-                            height: 40,
-                            width: 60,
-                            child: Icon(
-                              FontAwesomeIcons.twitter,
-                              color: Colors.white,
-                              size: 25,
-                            ),
-                            onPressed: () {
-                              Utils.launchURL(PersonalData.twitterURL);
-                            }),
-                        HoverableButton(
-                            height: 40,
-                            width: 60,
-                            child: Icon(
-                              FontAwesomeIcons.github,
-                              color: Colors.white,
-                              size: 25,
-                            ),
-                            onPressed: () {
-                              Utils.launchURL(PersonalData.githubURL);
-                            }),
-                        HoverableButton(
-                            height: 40,
-                            width: 60,
-                            child: Icon(
-                              FontAwesomeIcons.linkedin,
-                              color: Colors.white,
-                              size: 25,
-                            ),
-                            onPressed: () {
-                              Utils.launchURL(PersonalData.linkedinURL);
-                            }),
+                        LinkRenderer(
+                          anchorText: "Twitter",
+                          link: PersonalData.twitterURL,
+                          child: HoverableButton(
+                              height: 40,
+                              width: 60,
+                              child: Icon(
+                                FontAwesomeIcons.twitter,
+                                color: Colors.white,
+                                size: 25,
+                              ),
+                              onPressed: () {
+                                Utils.launchURL(PersonalData.twitterURL);
+                              }),
+                        ),
+                        LinkRenderer(
+                          anchorText: 'Github',
+                          link: PersonalData.githubURL,
+                          child: HoverableButton(
+                              height: 40,
+                              width: 60,
+                              child: Icon(
+                                FontAwesomeIcons.github,
+                                color: Colors.white,
+                                size: 25,
+                              ),
+                              onPressed: () {
+                                Utils.launchURL(PersonalData.githubURL);
+                              }),
+                        ),
+                        LinkRenderer(
+                          anchorText: 'Linkedin',
+                          link: PersonalData.linkedinURL,
+                          child: HoverableButton(
+                              height: 40,
+                              width: 60,
+                              child: Icon(
+                                FontAwesomeIcons.linkedin,
+                                color: Colors.white,
+                                size: 25,
+                              ),
+                              onPressed: () {
+                                Utils.launchURL(PersonalData.linkedinURL);
+                              }),
+                        ),
                       ],
                     )),
               ),
