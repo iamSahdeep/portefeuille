@@ -28,11 +28,8 @@ dependencies:
   flutter_circular_text: ^0.3.1
   url_launcher: ^6.0.3
   url_strategy: ^0.2.0
-  seo_renderer:
-
-  #Rleasingn Sooooon
+  seo_renderer: ^0.0.3
   flutter_wgl:
-    path: ../flutter_wgl/
 
 dev_dependencies:
   flutter_test:
