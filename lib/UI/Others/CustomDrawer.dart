@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -11,6 +13,7 @@ import 'package:portefeuille/UI/Screens/AboutPage.dart';
 import 'package:portefeuille/UI/Screens/BlogsPage.dart';
 import 'package:portefeuille/UI/Screens/ContactPage.dart';
 import 'package:portefeuille/UI/Screens/ProjectsPage.dart';
+import 'package:seo_renderer/renderers/link_renderer.dart';
 
 class CustomDrawer extends StatefulWidget {
   @override
@@ -35,8 +38,10 @@ class _CustomDrawerState extends State<CustomDrawer> {
           children: [
             AnimatedPositioned(
               duration: const Duration(milliseconds: 300),
-              left: uiModel.pointerPosition.dx - (uiModel.isHoveringLinks ? 150 :100),
-              top: uiModel.pointerPosition.dy - (uiModel.isHoveringLinks ? 150 :100),
+              left: uiModel.pointerPosition.dx -
+                  (uiModel.isHoveringLinks ? 150 : 100),
+              top: uiModel.pointerPosition.dy -
+                  (uiModel.isHoveringLinks ? 150 : 100),
               child: DefaultCursor(),
             ),
             AnimatedPositioned(
@@ -88,9 +93,12 @@ class _CustomDrawerState extends State<CustomDrawer> {
                       },
                       child: AnimatedDefaultTextStyle(
                         duration: Duration(milliseconds: 200),
-                        child: Text("About".toUpperCase()),
+                        child: LinkRenderer(
+                            anchorText: 'About',
+                            link: PersonalData.baseURL + AboutPage.Route,
+                            child: Text("About".toUpperCase())),
                         style: TextStyle(
-                          fontFamily: "sharpgro",
+                            fontFamily: "sharpgro",
                             color: uiModel.currentHoverItem == 1
                                 ? Colors.white
                                 : Colors.black,
@@ -116,7 +124,10 @@ class _CustomDrawerState extends State<CustomDrawer> {
                       },
                       child: AnimatedDefaultTextStyle(
                         duration: Duration(milliseconds: 200),
-                        child: Text("Projects".toUpperCase()),
+                        child: LinkRenderer(
+                            anchorText: 'Projects',
+                            link: PersonalData.baseURL + ProjectPage.Route,
+                            child: Text("Projects".toUpperCase())),
                         style: TextStyle(
                             fontFamily: "sharpgro",
                             color: uiModel.currentHoverItem == 2
@@ -126,7 +137,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                             fontSize: Utils.isMobileView(context)
                                 ? 50
                                 : Utils.getHeight(context) /
-                                (uiModel.currentHoverItem == 2 ? 7 : 8)),
+                                    (uiModel.currentHoverItem == 2 ? 7 : 8)),
                       ),
                     ),
                   ),
@@ -144,7 +155,10 @@ class _CustomDrawerState extends State<CustomDrawer> {
                       },
                       child: AnimatedDefaultTextStyle(
                         duration: Duration(milliseconds: 200),
-                        child: Text("Blogs".toUpperCase()),
+                        child: LinkRenderer(
+                            anchorText: 'Blogs',
+                            link: PersonalData.baseURL + BlogsPage.Route,
+                            child: Text("Blogs".toUpperCase())),
                         style: TextStyle(
                             fontFamily: "sharpgro",
                             color: uiModel.currentHoverItem == 3
@@ -154,7 +168,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                             fontSize: Utils.isMobileView(context)
                                 ? 50
                                 : Utils.getHeight(context) /
-                                (uiModel.currentHoverItem == 3 ? 7 : 8)),
+                                    (uiModel.currentHoverItem == 3 ? 7 : 8)),
                       ),
                     ),
                   ),
@@ -172,7 +186,10 @@ class _CustomDrawerState extends State<CustomDrawer> {
                       },
                       child: AnimatedDefaultTextStyle(
                         duration: Duration(milliseconds: 200),
-                        child: Text("Contact".toUpperCase()),
+                        child: LinkRenderer(
+                            anchorText: 'Contact',
+                            link: PersonalData.baseURL + ContactPage.Route,
+                            child: Text("Contact".toUpperCase())),
                         style: TextStyle(
                             fontFamily: "sharpgro",
                             color: uiModel.currentHoverItem == 4
@@ -182,7 +199,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                             fontSize: Utils.isMobileView(context)
                                 ? 50
                                 : Utils.getHeight(context) /
-                                (uiModel.currentHoverItem == 4 ? 7 : 8)),
+                                    (uiModel.currentHoverItem == 4 ? 7 : 8)),
                       ),
                     ),
                   ),

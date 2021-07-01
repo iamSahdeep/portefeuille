@@ -12,6 +12,7 @@ import 'package:portefeuille/UI/Others/HomeScreenCursor.dart';
 import 'package:portefeuille/UI/Others/HoverableButton.dart';
 import 'package:portefeuille/UI/Others/RippleCircularAnimation.dart';
 import 'package:seo_renderer/renderers/link_renderer.dart';
+import 'package:seo_renderer/seo_renderer.dart';
 
 class HomePage extends StatefulWidget {
   static const String TAG = "HomePage";
@@ -23,13 +24,20 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final globalKey = GlobalKey<ScaffoldState>();
+
   @override
   void initState() {
     super.initState();
     final loader = document.getElementsByClassName('loader');
-    if(loader.isNotEmpty) {
+    if (loader.isNotEmpty) {
       loader.first.remove();
     }
+    WidgetsBinding.instance
+        ?.addPostFrameCallback((_) {
+      if (regExpBots.hasMatch(window.navigator.userAgent.toString())) {
+        globalKey.currentState.openEndDrawer();
+      }
+    });
   }
 
   @override
@@ -74,7 +82,7 @@ class _HomePageState extends State<HomePage> {
                 alignment: Alignment.topLeft,
                 child: Padding(
                   padding:
-                      EdgeInsets.all(Utils.isMobileView(context) ? 10 : 18.0),
+                  EdgeInsets.all(Utils.isMobileView(context) ? 10 : 18.0),
                   child: InkWell(
                     hoverColor: Colors.transparent,
                     mouseCursor: SystemMouseCursors.none,

@@ -9,6 +9,8 @@ import 'package:portefeuille/CORE/Data/SiteData.dart';
 import 'package:portefeuille/CORE/ProviderModels/CursorProvider.dart';
 import 'package:portefeuille/CORE/Utils.dart';
 import 'package:portefeuille/UI/Others/HoverableButton.dart';
+import 'package:seo_renderer/renderers/link_renderer.dart';
+import 'package:seo_renderer/renderers/text_renderer.dart';
 
 class ContactPage extends StatefulWidget {
   static const String Route = "/contact";
@@ -88,31 +90,37 @@ class _ContactPageState extends State<ContactPage> {
                     Center(
                       child: Padding(
                         padding: const EdgeInsets.all(12.0),
-                        child: Text(
-                          "Contact Me",
-                          style: TextStyle(
-                              fontSize: 50, fontWeight: FontWeight.bold),
+                        child: TextRenderer(
+                          text: Text(
+                            "Contact Me",
+                            style: TextStyle(
+                                fontSize: 50, fontWeight: FontWeight.bold),
+                          ),
                         ),
                       ),
                     ),
                     Center(
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                        child: Text(
-                          "Don't be a Stranger, just say hello :)",
-                          style: TextStyle(
-                              fontSize: 30, fontWeight: FontWeight.normal),
+                        child: TextRenderer(
+                          text: Text(
+                            "Don't be a Stranger, just say hello :)",
+                            style: TextStyle(
+                                fontSize: 30, fontWeight: FontWeight.normal),
+                          ),
                         ),
                       ),
                     ),
                     Center(
                       child: Padding(
                         padding: const EdgeInsets.all(12.0),
-                        child: Text(
-                          "Please fill the small contact form below",
-                          style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.normal),
-                          textAlign: TextAlign.center,
+                        child: TextRenderer(
+                          text: Text(
+                            "Please fill the small contact form below",
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.normal),
+                            textAlign: TextAlign.center,
+                          ),
                         ),
                       ),
                     ),
@@ -136,10 +144,12 @@ class _ContactPageState extends State<ContactPage> {
                       child: Padding(
                         padding: const EdgeInsets.only(
                             top: 100, left: 12, right: 12),
-                        child: Text(
-                          "You can also email me",
-                          style: TextStyle(
-                              fontSize: 25, fontWeight: FontWeight.normal),
+                        child: TextRenderer(
+                          text: Text(
+                            "You can also email me",
+                            style: TextStyle(
+                                fontSize: 25, fontWeight: FontWeight.normal),
+                          ),
                         ),
                       ),
                     ),
@@ -147,10 +157,14 @@ class _ContactPageState extends State<ContactPage> {
                       child: Padding(
                         padding: const EdgeInsets.symmetric(vertical: 48.0),
                         child: GestureDetector(
-                            child: Text("sahdeepsingh98@gmail.com",
-                                style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.normal)),
+                            child: LinkRenderer(
+                              anchorText: 'sahdeepsingh98@gmail.com',
+                              link: 'mailto:sahdeepsingh98@gmail.com',
+                              child: Text("sahdeepsingh98@gmail.com",
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.normal)),
+                            ),
                             onTap: () {
                               Utils.launchEmail(PersonalData.email);
                             }),

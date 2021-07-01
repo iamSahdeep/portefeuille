@@ -8,6 +8,7 @@ import 'package:portefeuille/CORE/ProviderModels/ProjectProvider.dart';
 import 'package:portefeuille/CORE/Utils.dart';
 import 'package:portefeuille/UI/Others/CustomDrawer.dart';
 import 'package:portefeuille/UI/Screens/ProjectDetailsPage.dart';
+import 'package:seo_renderer/seo_renderer.dart';
 
 class ProjectPage extends StatefulWidget {
   static const String TAG = "ProjectPage";
@@ -19,7 +20,7 @@ class ProjectPage extends StatefulWidget {
 
 class _ProjectPageState extends State<ProjectPage> {
   ScrollController scrollController, listController;
-
+  RenderController renderController1, renderController2;
   double scrollOffset = 0;
 
   @override
@@ -27,10 +28,14 @@ class _ProjectPageState extends State<ProjectPage> {
     super.initState();
     scrollController = ScrollController(initialScrollOffset: 0);
     listController = ScrollController(initialScrollOffset: 0);
+    renderController1 = RenderController();
+    renderController2 = RenderController();
     scrollController.addListener(() {
       setState(() {
         scrollOffset = scrollController.offset;
       });
+      renderController1.refresh.call();
+      renderController2.refresh.call();
       listController.jumpTo(scrollOffset);
     });
     Provider.of<ProjectProvider>(context, listen: false).currentProjectIndex =
@@ -114,7 +119,7 @@ class _ProjectPageState extends State<ProjectPage> {
                                   child: Image.asset(
                                     PersonalData
                                         .allProjects[
-                                    proModel.currentProjectIndex]
+                                            proModel.currentProjectIndex]
                                         .banner,
                                     fit: Utils.isMobileView(context)
                                         ? BoxFit.fitHeight
@@ -173,15 +178,15 @@ class _ProjectPageState extends State<ProjectPage> {
                         ),
                       ),
                     ),
-                    Hero(
-                      tag: "title_tag",
-                      child: Material(
-                        type: MaterialType.transparency,
-                        child: Padding(
-                          padding: Utils.isMobileView(context)
-                              ? EdgeInsets.only(top: 30)
-                              : const EdgeInsets.all(8.0),
-                          child: Text(
+                    Material(
+                      type: MaterialType.transparency,
+                      child: Padding(
+                        padding: Utils.isMobileView(context)
+                            ? EdgeInsets.only(top: 30)
+                            : const EdgeInsets.all(8.0),
+                        child: TextRenderer(
+                          controller: renderController1,
+                          text: Text(
                               PersonalData
                                   .allProjects[proModel.currentProjectIndex]
                                   .title,
@@ -193,12 +198,16 @@ class _ProjectPageState extends State<ProjectPage> {
                     ),
                     Padding(
                       padding: const EdgeInsets.all(20.0),
-                      child: Text(
-                          PersonalData.allProjects[proModel.currentProjectIndex]
-                              .shortDescription,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.normal)),
+                      child: TextRenderer(
+                        controller: renderController2,
+                        text: Text(
+                            PersonalData
+                                .allProjects[proModel.currentProjectIndex]
+                                .shortDescription,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.normal)),
+                      ),
                     ),
                   ],
                 ),

@@ -4,6 +4,7 @@ import 'package:portefeuille/UI/Screens/PageNotFound.dart';
 import 'package:portefeuille/UI/Screens/ProjectDetailsPage.dart';
 
 class PersonalData {
+  static const baseURL = 'https://sahdeepsingh.com';
   static const List<Project> allProjects = [
     Project(
       id: 1,

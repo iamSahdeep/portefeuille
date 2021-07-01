@@ -4,6 +4,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portefeuille/CORE/DataModels/ProjectModel.dart';
 import 'package:portefeuille/CORE/Utils.dart';
 import 'package:portefeuille/UI/Others/HoverableButton.dart';
+import 'package:seo_renderer/helpers/utils.dart';
+import 'package:seo_renderer/seo_renderer.dart';
 
 class ProjectDetailsPage extends StatefulWidget {
   static const String TAG = "ProjectDetailsPage";
@@ -27,6 +29,17 @@ class _ProjectDetailsPageState extends State<ProjectDetailsPage> {
     super.didChangeDependencies();
   }
 
+  final RenderController renderController = RenderController();
+  final ScrollController scrollController = ScrollController();
+
+  @override
+  void initState() {
+    super.initState();
+    scrollController.addListener(() {
+      //renderController.refresh.call();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     Project project = widget.project;
@@ -34,6 +47,7 @@ class _ProjectDetailsPageState extends State<ProjectDetailsPage> {
         body: Stack(
       children: [
         SingleChildScrollView(
+          controller: scrollController,
           physics: BouncingScrollPhysics(),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -82,37 +96,39 @@ class _ProjectDetailsPageState extends State<ProjectDetailsPage> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Hero(
-                          tag: "title_tag",
-                          child: Material(
-                            type: MaterialType.transparency,
-                            child: Padding(
-                              padding: const EdgeInsets.all(20.0),
-                              child: SingleChildScrollView(
-                                physics: NeverScrollableScrollPhysics(),
-                                scrollDirection: Axis.horizontal,
-                                child: Row(
-                                  children: [
-                                    Text(
+                        Material(
+                          type: MaterialType.transparency,
+                          child: Padding(
+                            padding: const EdgeInsets.all(20.0),
+                            child: SingleChildScrollView(
+                              physics: NeverScrollableScrollPhysics(),
+                              scrollDirection: Axis.horizontal,
+                              child: Row(
+                                children: [
+                                  TextRenderer(
+                                    text: Text(
                                       project.title,
                                       style: TextStyle(
-                                          fontSize: Utils.isMobileView(context)
-                                              ? 30
-                                              : 40),
+                                          fontSize:
+                                              Utils.isMobileView(context)
+                                                  ? 30
+                                                  : 40),
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
                             ),
                           ),
                         ),
                         Padding(
                           padding: const EdgeInsets.all(20.0),
-                          child: Text(
-                            project.shortDescription,
-                            style: TextStyle(
-                                fontSize:
-                                Utils.isMobileView(context) ? 20 : 30),
+                          child: TextRenderer(
+                            text: Text(
+                              project.shortDescription,
+                              style: TextStyle(
+                                  fontSize:
+                                      Utils.isMobileView(context) ? 20 : 30),
+                            ),
                           ),
                         )
                       ],
@@ -123,18 +139,20 @@ class _ProjectDetailsPageState extends State<ProjectDetailsPage> {
               !Utils.isMobileView(context)
                   ? SizedBox()
                   : ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: project.yearAndTech.length,
-                  itemBuilder: (context, index) {
-                    return Center(
-                        child: Padding(
+                      shrinkWrap: true,
+                      itemCount: project.yearAndTech.length,
+                      itemBuilder: (context, index) {
+                        return Center(
+                            child: Padding(
                           padding: EdgeInsets.all(index == 0 ? 30 : 12.0),
-                          child: Text(
-                            project.yearAndTech[index],
-                            style: TextStyle(fontSize: index == 0 ? 30 : 20),
+                          child: TextRenderer(
+                            text: Text(
+                              project.yearAndTech[index],
+                              style: TextStyle(fontSize: index == 0 ? 30 : 20),
+                            ),
                           ),
                         ));
-                  }),
+                      }),
               Padding(
                 padding: const EdgeInsets.all(40.0),
                 child: Container(
@@ -145,12 +163,14 @@ class _ProjectDetailsPageState extends State<ProjectDetailsPage> {
               ),
               Padding(
                 padding:
-                EdgeInsets.all(Utils.isMobileView(context) ? 30 : 60.0),
-                child: Text(
-                  project.longDescription,
-                  textAlign: TextAlign.justify,
-                  style: TextStyle(
-                      fontSize: Utils.isMobileView(context) ? 16 : 20),
+                    EdgeInsets.all(Utils.isMobileView(context) ? 30 : 60.0),
+                child: TextRenderer(
+                  text: Text(
+                    project.longDescription,
+                    textAlign: TextAlign.justify,
+                    style: TextStyle(
+                        fontSize: Utils.isMobileView(context) ? 16 : 20),
+                  ),
                 ),
               ),
               Padding(
@@ -221,17 +241,21 @@ class _ProjectDetailsPageState extends State<ProjectDetailsPage> {
       temp.add(
         Padding(
           padding: const EdgeInsets.all(18.0),
-          child: HoverableButton(
-              height: 40,
-              width: 40,
-              child: Icon(
-                FontAwesomeIcons.googlePlay,
-                color: Colors.white,
-                size: 30,
-              ),
-              onPressed: () {
-                Utils.launchURL(project.playstoreLink);
-              }),
+          child: LinkRenderer(
+            anchorText: 'Playstore',
+            link: project.playstoreLink,
+            child: HoverableButton(
+                height: 40,
+                width: 40,
+                child: Icon(
+                  FontAwesomeIcons.googlePlay,
+                  color: Colors.white,
+                  size: 30,
+                ),
+                onPressed: () {
+                  Utils.launchURL(project.playstoreLink);
+                }),
+          ),
         ),
       );
     }
