@@ -29,9 +29,9 @@ class PageNotFound extends StatelessWidget {
                 iconSize: 50,
                 onPressed: () {
                   Navigator.pushNamedAndRemoveUntil(context, HomePage.Route,
-                          (c) {
-                        return false;
-                      });
+                      (c) {
+                    return false;
+                  });
                 },
               ),
             ),

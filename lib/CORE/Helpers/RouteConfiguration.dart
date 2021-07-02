@@ -21,23 +21,23 @@ class RouteConfiguration {
       (context, match) => PersonalData.getProjectPage(match),
     ),
     Path(
-      r'^' + ProjectPage.Route,
+      r'^' + ProjectPage.Route + '\$',
       (context, match) => ProjectPage(),
     ),
     Path(
-      r'^' + AboutPage.Route,
+      r'^' + AboutPage.Route + '\$',
       (context, match) => AboutPage(),
     ),
     Path(
-      r'^' + BlogsPage.Route,
+      r'^' + BlogsPage.Route + '\$',
       (context, match) => BlogsPage(),
     ),
     Path(
-      r'^' + ContactPage.Route,
+      r'^' + ContactPage.Route + '\$',
       (context, match) => ContactPage(),
     ),
     Path(
-      r'^' + PageNotFound.Route,
+      r'^' + PageNotFound.Route + '\$',
       (context, match) => PageNotFound(),
     ),
   ];
@@ -59,21 +59,56 @@ class RouteConfiguration {
         final firstMatch = regExpPattern.firstMatch(settings.name);
         final match = (firstMatch.groupCount == 1) ? firstMatch.group(1) : null;
         return CustomPageRoute(
-          builder: (context) => path.builder(context, match),
-          settings: settings,
+          builder: (context) {
+            return path.builder(context, match);
+          },
+          settings: PersonalData.getProjectPage(match) is PageNotFound &&
+                  path == paths.first
+              ? RouteSettings(name: PageNotFound.Route)
+              : settings,
         );
       }
     }
 
     // If no match was found, we let [WidgetsApp.onUnknownRoute] handle it.
-    return null;
+    return CustomPageRoute(
+        builder: (_) => PageNotFound(),
+        settings: RouteSettings(name: PageNotFound.Route));
   }
 }
 
-class CustomPageRoute extends MaterialPageRoute {
-  @override
-  Duration get transitionDuration => const Duration(milliseconds: 500);
+class CustomPageRoute extends PageRouteBuilder {
+  final Widget Function(dynamic) builder;
+  final RouteSettings settings;
 
-  CustomPageRoute({builder, settings})
-      : super(builder: builder, settings: settings);
+  CustomPageRoute({this.builder, this.settings})
+      : super(
+            pageBuilder: (
+              BuildContext context,
+              Animation<double> animation,
+              Animation<double> secondaryAnimation,
+            ) =>
+                builder.call(context),
+            transitionsBuilder: (
+              BuildContext context,
+              Animation<double> animation,
+              Animation<double> secondaryAnimation,
+              Widget child,
+            ) =>
+                FadeTransition(
+                  opacity: animation,
+                  child: ScaleTransition(
+                    scale: Tween<double>(
+                      begin: 0.5,
+                      end: 1.0,
+                    ).animate(
+                      CurvedAnimation(
+                        parent: animation,
+                        curve: Curves.fastOutSlowIn,
+                      ),
+                    ),
+                    child: child,
+                  ),
+                ),
+            settings: settings);
 }

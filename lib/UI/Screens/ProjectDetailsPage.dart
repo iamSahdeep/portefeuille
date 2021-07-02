@@ -9,7 +9,7 @@ import 'package:seo_renderer/seo_renderer.dart';
 
 class ProjectDetailsPage extends StatefulWidget {
   static const String TAG = "ProjectDetailsPage";
-  static const String Route = "/project";
+  static const String Route = "/projects";
 
   static String Function(String slug) routeFromSlug =
       (String slug) => Route + '/$slug';

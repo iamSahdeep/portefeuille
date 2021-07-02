@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
         onGenerateRoute: RouteConfiguration.onGenerateRoute,
         initialRoute: HomePage.Route,
         onUnknownRoute: (settings) {
-          return MaterialPageRoute(
+          return CustomPageRoute(
               builder: (_) => PageNotFound(),
               settings: RouteSettings(name: PageNotFound.Route));
         },
