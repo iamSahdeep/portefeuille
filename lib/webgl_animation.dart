@@ -150,13 +150,12 @@ void main() {
 
     for (int i = 0; i < count; i++) {
       final VM.Vector3 t = VM.Vector3.random(rand) - VM.Vector3(0.5, 0.5, 0.5);
-      t.scale(60.0);
+      t.scale(70.0);
       translations.setAll(i * 3, t.storage);
       final VM.Vector3 u = VM.Vector3.random(rand);
       final VM.Quaternion q =
           VM.Quaternion.axisAngle(u, 2.0 * rand.nextDouble() * Math.pi);
       rotations.setAll(i * 4, q.storage);
-
       scales.setAll(i, [2.0 + rand.nextDouble() * 4.0]);
     }
 
@@ -183,7 +182,7 @@ void main() {
     var image = context.getImageData(0, 0, canvas.width, canvas.height);
 
     for (int i = 0; i < image.data.length; i += 4) {
-      int v = 30 + rand.nextInt(100);
+      int v = 220 + rand.nextInt(1);
       image.data[i + 0] = v;
       image.data[i + 1] = v;
       image.data[i + 2] = v;
@@ -218,7 +217,7 @@ void main() {
     canvas.height = height;
     perspective.AdjustAspect(width, height);
 
-    final Math.Random rand = Math.Random(1);
+    final Math.Random rand = Math.Random(10);
 
     final progPreparation = RenderProgram(
         "preparation", cgl, preparationVertexShader, preparationFragmentShader);
@@ -228,7 +227,6 @@ void main() {
 
     final cubes = ShapeWedge(progInstanced, x: 0.1, y: 0.1, z: 0.1);
     addInstanceData(cubes, rand, 500);
-    print("instances: $cubes.GetNumInstances()}");
 
     final prepare =
         Phase(progPreparation, cubes, makePrepareFb(cgl, width, height))
@@ -236,7 +234,7 @@ void main() {
 
     final Phase render = Phase(progInstanced, cubes, Framebuffer.Screen(cgl))
       ..mat.SetUniform(uModelMatrix, VM.Matrix4.identity())
-      ..mat.SetUniform(uShininess, 10.0)
+      ..mat.SetUniform(uShininess, 100.0)
       ..mat.SetUniform(uTexture2, makeNoiseTexture(cgl, rand))
       ..mat.SetUniform(uTexture, prepare.fb.colorTexture);
 
