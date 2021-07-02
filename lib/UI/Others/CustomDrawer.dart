@@ -3,6 +3,7 @@ import 'dart:html';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:portefeuille/CORE/Data/SiteData.dart';
 import 'package:portefeuille/CORE/ProviderModels/CursorProvider.dart';
@@ -98,7 +99,9 @@ class _CustomDrawerState extends State<CustomDrawer> {
                             link: PersonalData.baseURL + AboutPage.Route,
                             child: Text("About".toUpperCase())),
                         style: TextStyle(
-                            fontFamily: "sharpgro",
+                            fontFamily: GoogleFonts.oleoScript(
+                                    fontWeight: FontWeight.bold)
+                                .fontFamily,
                             color: uiModel.currentHoverItem == 1
                                 ? Colors.white
                                 : Colors.black,
@@ -129,7 +132,9 @@ class _CustomDrawerState extends State<CustomDrawer> {
                             link: PersonalData.baseURL + ProjectPage.Route,
                             child: Text("Projects".toUpperCase())),
                         style: TextStyle(
-                            fontFamily: "sharpgro",
+                            fontFamily: GoogleFonts.oleoScript(
+                                    fontWeight: FontWeight.bold)
+                                .fontFamily,
                             color: uiModel.currentHoverItem == 2
                                 ? Colors.white
                                 : Colors.black,
@@ -160,7 +165,9 @@ class _CustomDrawerState extends State<CustomDrawer> {
                             link: PersonalData.baseURL + BlogsPage.Route,
                             child: Text("Blogs".toUpperCase())),
                         style: TextStyle(
-                            fontFamily: "sharpgro",
+                            fontFamily: GoogleFonts.oleoScript(
+                                    fontWeight: FontWeight.bold)
+                                .fontFamily,
                             color: uiModel.currentHoverItem == 3
                                 ? Colors.white
                                 : Colors.black,
@@ -191,7 +198,9 @@ class _CustomDrawerState extends State<CustomDrawer> {
                             link: PersonalData.baseURL + ContactPage.Route,
                             child: Text("Contact".toUpperCase())),
                         style: TextStyle(
-                            fontFamily: "sharpgro",
+                            fontFamily: GoogleFonts.oleoScript(
+                                    fontWeight: FontWeight.bold)
+                                .fontFamily,
                             color: uiModel.currentHoverItem == 4
                                 ? Colors.white
                                 : Colors.black,

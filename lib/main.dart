@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:portefeuille/webgl_animation.dart';
 import 'package:provider/provider.dart';
 import 'package:portefeuille/CORE/Helpers/RouteConfiguration.dart';
@@ -24,10 +25,11 @@ class MyApp extends StatelessWidget {
             create: (_) => ProjectProvider()),
       ],
       child: MaterialApp(
-        title: 'Sahdeep Singh',
+        title: 'Sahdeep Singh - Flutter/Mobile Engineer',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-            fontFamily: 'sharpgro',
+            fontFamily:
+                GoogleFonts.oleoScript(fontWeight: FontWeight.bold).fontFamily,
             scaffoldBackgroundColor: Color(0xff2c2a2a),
             brightness: Brightness.dark),
         onGenerateRoute: RouteConfiguration.onGenerateRoute,
