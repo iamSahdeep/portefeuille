@@ -9,8 +9,7 @@ import 'package:portefeuille/CORE/Data/SiteData.dart';
 import 'package:portefeuille/CORE/ProviderModels/CursorProvider.dart';
 import 'package:portefeuille/CORE/Utils.dart';
 import 'package:portefeuille/UI/Others/HoverableButton.dart';
-import 'package:seo_renderer/renderers/link_renderer.dart';
-import 'package:seo_renderer/renderers/text_renderer.dart';
+import 'package:seo_renderer/seo_renderer.dart';
 
 class ContactPage extends StatefulWidget {
   static const String Route = "/contact";

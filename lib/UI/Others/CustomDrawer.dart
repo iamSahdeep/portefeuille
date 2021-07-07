@@ -14,7 +14,7 @@ import 'package:portefeuille/UI/Screens/AboutPage.dart';
 import 'package:portefeuille/UI/Screens/BlogsPage.dart';
 import 'package:portefeuille/UI/Screens/ContactPage.dart';
 import 'package:portefeuille/UI/Screens/ProjectsPage.dart';
-import 'package:seo_renderer/renderers/link_renderer.dart';
+import 'package:seo_renderer/seo_renderer.dart';
 
 class CustomDrawer extends StatefulWidget {
   @override

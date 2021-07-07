@@ -8,6 +8,7 @@ import 'package:portefeuille/CORE/Data/SiteData.dart';
 import 'package:portefeuille/CORE/ProviderModels/CursorProvider.dart';
 import 'package:portefeuille/CORE/Utils.dart';
 import 'package:portefeuille/UI/Others/DefaultCursor.dart';
+import 'package:seo_renderer/seo_renderer.dart';
 
 class AboutPage extends StatelessWidget {
   static const String TAG = "AboutPage";
@@ -87,58 +88,65 @@ class AboutPage extends StatelessWidget {
                             : EdgeInsets.only(bottom: 20, left: 20, right: 20),
                         child: Column(
                           children: [
-                            RichText(
-                              text: TextSpan(
-                                  style: TextStyle(
-                                      fontSize:
-                                          Utils.isMobileView(context) ? 25 : 40,
-                                      color: Colors.white,
-                                      letterSpacing: 2,
-                                      wordSpacing: 5),
-                                  children: [
-                                    TextSpan(
-                                      text: "Hi there, my name is ",
-                                    ),
-                                    TextSpan(
-                                        text: "Sahdeep Singh.\n\n",
-                                        style: TextStyle(
-                                            decoration:
-                                                TextDecoration.underline)),
-                                    TextSpan(
-                                        text:
-                                            "I’m a Flutter & Android Engineer based in New Delhi, India.\n\n"),
-                                    TextSpan(
-                                        text:
-                                            "I love engineering and everything related to it admires me. Want to be a part of some awesome engineers which are changing world with there knowledge and skills :)\n\n"),
-                                    TextSpan(
-                                        text:
-                                            "I most of the time being on my laptop explore things, mostly technical. and always creating something by enjoying every part of it.\n\n"),
-                                    TextSpan(
-                                        text: "You can connect with me on ",
-                                        children: [
-                                          TextSpan(
-                                              text: "Instagram",
-                                              recognizer: TapGestureRecognizer()
-                                                ..onTap = () {
-                                                  Utils.launchURL(
-                                                      PersonalData.instaURL);
-                                                },
-                                              style: TextStyle(
-                                                  decoration: TextDecoration
-                                                      .underline)),
-                                          TextSpan(text: " & "),
-                                          TextSpan(
-                                              text: "Twitter",
-                                              recognizer: TapGestureRecognizer()
-                                                ..onTap = () {
-                                                  Utils.launchURL(
-                                                      PersonalData.twitterURL);
-                                                },
-                                              style: TextStyle(
-                                                  decoration:
-                                                      TextDecoration.underline))
-                                        ]),
-                                  ]),
+                            TextRenderer(
+                              text: RichText(
+                                text: TextSpan(
+                                    style: TextStyle(
+                                        fontSize: Utils.isMobileView(context)
+                                            ? 25
+                                            : 40,
+                                        color: Colors.white,
+                                        letterSpacing: 2,
+                                        wordSpacing: 5),
+                                    children: [
+                                      TextSpan(
+                                        text: "Hi there, my name is ",
+                                      ),
+                                      TextSpan(
+                                          text: "Sahdeep Singh.\n\n",
+                                          style: TextStyle(
+                                              decoration:
+                                                  TextDecoration.underline)),
+                                      TextSpan(
+                                          text:
+                                              "I’m a Flutter & Android Engineer based in New Delhi, India.\n\n"),
+                                      TextSpan(
+                                          text:
+                                              "I love engineering and everything related to it admires me. Want to be a part of some awesome engineers which are changing world with there knowledge and skills :)\n\n"),
+                                      TextSpan(
+                                          text:
+                                              "I most of the time being on my laptop explore things, mostly technical. and always creating something by enjoying every part of it.\n\n"),
+                                      TextSpan(
+                                          text: "You can connect with me on ",
+                                          children: [
+                                            TextSpan(
+                                                text: "Instagram",
+                                                recognizer:
+                                                    TapGestureRecognizer()
+                                                      ..onTap = () {
+                                                        Utils.launchURL(
+                                                            PersonalData
+                                                                .instaURL);
+                                                      },
+                                                style: TextStyle(
+                                                    decoration: TextDecoration
+                                                        .underline)),
+                                            TextSpan(text: " & "),
+                                            TextSpan(
+                                                text: "Twitter",
+                                                recognizer:
+                                                    TapGestureRecognizer()
+                                                      ..onTap = () {
+                                                        Utils.launchURL(
+                                                            PersonalData
+                                                                .twitterURL);
+                                                      },
+                                                style: TextStyle(
+                                                    decoration: TextDecoration
+                                                        .underline))
+                                          ]),
+                                    ]),
+                              ),
                             )
                           ],
                         ),
@@ -153,9 +161,11 @@ class AboutPage extends StatelessWidget {
                                   bottom: 38.0,
                                   top:
                                       Utils.isMobileView(context) ? 50.0 : 0.0),
-                              child: Text(
-                                "Experience",
-                                style: TextStyle(fontSize: 50),
+                              child: TextRenderer(
+                                text: Text(
+                                  "Experience",
+                                  style: TextStyle(fontSize: 50),
+                                ),
                               ),
                             ),
                             Padding(
@@ -168,23 +178,29 @@ class AboutPage extends StatelessWidget {
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Expanded(
-                                    child: Text(
-                                      "Flutter Engineer",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                          fontSize: Utils.isMobileView(context)
-                                              ? 15
-                                              : 25),
+                                    child: TextRenderer(
+                                      text: Text(
+                                        "Flutter Engineer",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                            fontSize:
+                                                Utils.isMobileView(context)
+                                                    ? 15
+                                                    : 25),
+                                      ),
                                     ),
                                   ),
                                   Expanded(
-                                    child: Text(
-                                      "GoHighLevel",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                          fontSize: Utils.isMobileView(context)
-                                              ? 15
-                                              : 25),
+                                    child: TextRenderer(
+                                      text: Text(
+                                        "GoHighLevel",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                            fontSize:
+                                                Utils.isMobileView(context)
+                                                    ? 15
+                                                    : 25),
+                                      ),
                                     ),
                                   ),
                                   Expanded(
@@ -221,23 +237,29 @@ class AboutPage extends StatelessWidget {
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Expanded(
-                                    child: Text(
-                                      "Android Engineer",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                          fontSize: Utils.isMobileView(context)
-                                              ? 15
-                                              : 25),
+                                    child: TextRenderer(
+                                      text: Text(
+                                        "Android Engineer",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                            fontSize:
+                                                Utils.isMobileView(context)
+                                                    ? 15
+                                                    : 25),
+                                      ),
                                     ),
                                   ),
                                   Expanded(
-                                    child: Text(
-                                      "Bobble AI",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                          fontSize: Utils.isMobileView(context)
-                                              ? 15
-                                              : 25),
+                                    child: TextRenderer(
+                                      text: Text(
+                                        "Bobble AI",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                            fontSize:
+                                                Utils.isMobileView(context)
+                                                    ? 15
+                                                    : 25),
+                                      ),
                                     ),
                                   ),
                                   Expanded(
@@ -305,9 +327,11 @@ class AboutPage extends StatelessWidget {
                           children: [
                             Padding(
                               padding: const EdgeInsets.only(bottom: 38.0),
-                              child: Text(
-                                "Skills",
-                                style: TextStyle(fontSize: 50),
+                              child: TextRenderer(
+                                text: Text(
+                                  "Skills",
+                                  style: TextStyle(fontSize: 50),
+                                ),
                               ),
                             ),
                             Padding(
@@ -320,33 +344,42 @@ class AboutPage extends StatelessWidget {
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Expanded(
-                                    child: Text(
-                                      "Flutter",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                          fontSize: Utils.isMobileView(context)
-                                              ? 15
-                                              : 25),
+                                    child: TextRenderer(
+                                      text: Text(
+                                        "Flutter",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                            fontSize:
+                                                Utils.isMobileView(context)
+                                                    ? 15
+                                                    : 25),
+                                      ),
                                     ),
                                   ),
                                   Expanded(
-                                    child: Text(
-                                      "Android",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                          fontSize: Utils.isMobileView(context)
-                                              ? 15
-                                              : 25),
+                                    child: TextRenderer(
+                                      text: Text(
+                                        "Android",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                            fontSize:
+                                                Utils.isMobileView(context)
+                                                    ? 15
+                                                    : 25),
+                                      ),
                                     ),
                                   ),
                                   Expanded(
-                                    child: Text(
-                                      "Firebase",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                          fontSize: Utils.isMobileView(context)
-                                              ? 15
-                                              : 25),
+                                    child: TextRenderer(
+                                      text: Text(
+                                        "Firebase",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                            fontSize:
+                                                Utils.isMobileView(context)
+                                                    ? 15
+                                                    : 25),
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -375,23 +408,29 @@ class AboutPage extends StatelessWidget {
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Expanded(
-                                    child: Text(
-                                      "Dart",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                          fontSize: Utils.isMobileView(context)
-                                              ? 15
-                                              : 25),
+                                    child: TextRenderer(
+                                      text: Text(
+                                        "Dart",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                            fontSize:
+                                                Utils.isMobileView(context)
+                                                    ? 15
+                                                    : 25),
+                                      ),
                                     ),
                                   ),
                                   Expanded(
-                                    child: Text(
-                                      "Kotlin",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                          fontSize: Utils.isMobileView(context)
-                                              ? 15
-                                              : 25),
+                                    child: TextRenderer(
+                                      text: Text(
+                                        "Kotlin",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                            fontSize:
+                                                Utils.isMobileView(context)
+                                                    ? 15
+                                                    : 25),
+                                      ),
                                     ),
                                   ),
                                   Expanded(
@@ -419,12 +458,16 @@ class AboutPage extends StatelessWidget {
                           },
                           child: Padding(
                             padding: const EdgeInsets.all(18.0),
-                            child: Text(
-                              "My Resume",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize:
-                                      Utils.isMobileView(context) ? 15 : 25),
+                            child: LinkRenderer(
+                              anchorText: 'My Resume',
+                              link: PersonalData.resumeURL,
+                              child: Text(
+                                "My Resume",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize:
+                                        Utils.isMobileView(context) ? 15 : 25),
+                              ),
                             ),
                           ),
                         ),

@@ -11,7 +11,6 @@ import 'package:portefeuille/UI/Others/CustomDrawer.dart';
 import 'package:portefeuille/UI/Others/HomeScreenCursor.dart';
 import 'package:portefeuille/UI/Others/HoverableButton.dart';
 import 'package:portefeuille/UI/Others/RippleCircularAnimation.dart';
-import 'package:seo_renderer/renderers/link_renderer.dart';
 import 'package:seo_renderer/seo_renderer.dart';
 
 class HomePage extends StatefulWidget {
