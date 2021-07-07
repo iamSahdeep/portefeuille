@@ -22,6 +22,10 @@ class RouteConfiguration {
     ),
     Path(
       r'^' + ProjectPage.Route + '\$',
+          (context, match) => ProjectPage(),
+    ),
+    Path(
+      r'^' + ProjectPage.Route + '/\$',
       (context, match) => ProjectPage(),
     ),
     Path(
@@ -29,16 +33,32 @@ class RouteConfiguration {
       (context, match) => AboutPage(),
     ),
     Path(
+      r'^' + AboutPage.Route + '/\$',
+          (context, match) => AboutPage(),
+    ),
+    Path(
       r'^' + BlogsPage.Route + '\$',
       (context, match) => BlogsPage(),
+    ),
+    Path(
+      r'^' + BlogsPage.Route + '/\$',
+          (context, match) => BlogsPage(),
     ),
     Path(
       r'^' + ContactPage.Route + '\$',
       (context, match) => ContactPage(),
     ),
     Path(
+      r'^' + ContactPage.Route + '/\$',
+          (context, match) => ContactPage(),
+    ),
+    Path(
       r'^' + PageNotFound.Route + '\$',
       (context, match) => PageNotFound(),
+    ),
+    Path(
+      r'^' + PageNotFound.Route + '/\$',
+          (context, match) => PageNotFound(),
     ),
   ];
 
