@@ -116,21 +116,31 @@ class _ProjectPageState extends State<ProjectPage> {
                                   tag: PersonalData
                                       .allProjects[proModel.currentProjectIndex]
                                       .slug,
-                                  child: Image.asset(
-                                    PersonalData
+                                  child: ImageRenderer(
+                                    alt: PersonalData
+                                        .allProjects[
+                                            proModel.currentProjectIndex]
+                                        .title,
+                                    link: "assets/" + PersonalData
                                         .allProjects[
                                             proModel.currentProjectIndex]
                                         .banner,
-                                    fit: Utils.isMobileView(context)
-                                        ? BoxFit.fitHeight
-                                        : BoxFit.cover,
-                                    gaplessPlayback: true,
-                                    width: Utils.isMobileView(context)
-                                        ? Utils.getWidth(context)
-                                        : Utils.getWidth(context) / 1.5 - 30,
-                                    height: Utils.isMobileView(context)
-                                        ? Utils.getHeight(context) / 1.7
-                                        : Utils.getWidth(context) / 3.5 - 30,
+                                    child: Image.asset(
+                                      PersonalData
+                                          .allProjects[
+                                              proModel.currentProjectIndex]
+                                          .banner,
+                                      fit: Utils.isMobileView(context)
+                                          ? BoxFit.fitHeight
+                                          : BoxFit.cover,
+                                      gaplessPlayback: true,
+                                      width: Utils.isMobileView(context)
+                                          ? Utils.getWidth(context)
+                                          : Utils.getWidth(context) / 1.5 - 30,
+                                      height: Utils.isMobileView(context)
+                                          ? Utils.getHeight(context) / 1.7
+                                          : Utils.getWidth(context) / 3.5 - 30,
+                                    ),
                                   ),
                                 ),
                               ),

@@ -7,6 +7,7 @@ import 'package:portefeuille/CORE/ProviderModels/CursorProvider.dart';
 import 'package:portefeuille/CORE/Utils.dart';
 import 'package:portefeuille/UI/Others/CustomDrawer.dart';
 import 'package:portefeuille/UI/Others/HoverableButton.dart';
+import 'package:seo_renderer/renderers/link_renderer/link_renderer.dart';
 
 class BlogsPage extends StatelessWidget {
   static const String Route = "/blogs";
@@ -88,13 +89,17 @@ class BlogsPage extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.all(23.0),
-                  child: IconButton(
-                    icon: Icon(Icons.arrow_forward),
-                    color: Colors.white,
-                    iconSize: 50,
-                    onPressed: () {
-                      Utils.launchURL(PersonalData.devtoURL);
-                    },
+                  child: LinkRenderer(
+                    anchorText: "Blogs on Dev.to",
+                    link: PersonalData.devtoURL,
+                    child: IconButton(
+                      icon: Icon(Icons.arrow_forward),
+                      color: Colors.white,
+                      iconSize: 50,
+                      onPressed: () {
+                        Utils.launchURL(PersonalData.devtoURL);
+                      },
+                    ),
                   ),
                 ),
               ],

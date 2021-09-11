@@ -58,12 +58,16 @@ class _ProjectDetailsPageState extends State<ProjectDetailsPage> {
                 child: Center(
                   child: Padding(
                     padding: const EdgeInsets.all(50.0),
-                    child: Image.asset(
-                      widget.project.banner,
-                      fit: BoxFit.fitWidth,
-                      gaplessPlayback: true,
-                      width: Utils.getWidth(context) / 1.1,
-                      height: Utils.getWidth(context) / 3,
+                    child: ImageRenderer(
+                      link: "assets/" + widget.project.banner,
+                      alt: "${project.title} banner image",
+                      child: Image.asset(
+                        widget.project.banner,
+                        fit: BoxFit.fitWidth,
+                        gaplessPlayback: true,
+                        width: Utils.getWidth(context) / 1.1,
+                        height: Utils.getWidth(context) / 3,
+                      ),
                     ),
                   ),
                 ),
@@ -242,7 +246,7 @@ class _ProjectDetailsPageState extends State<ProjectDetailsPage> {
         Padding(
           padding: const EdgeInsets.all(18.0),
           child: LinkRenderer(
-            anchorText: 'Playstore',
+            anchorText: 'Playstore ${project.title}',
             link: project.playstoreLink,
             child: HoverableButton(
                 height: 40,

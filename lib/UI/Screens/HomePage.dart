@@ -31,8 +31,7 @@ class _HomePageState extends State<HomePage> {
     if (loader.isNotEmpty) {
       loader.first.remove();
     }
-    WidgetsBinding.instance
-        ?.addPostFrameCallback((_) {
+    WidgetsBinding.instance?.addPostFrameCallback((_) {
       if (regExpBots.hasMatch(window.navigator.userAgent.toString())) {
         globalKey.currentState.openEndDrawer();
       }
@@ -81,7 +80,7 @@ class _HomePageState extends State<HomePage> {
                 alignment: Alignment.topLeft,
                 child: Padding(
                   padding:
-                  EdgeInsets.all(Utils.isMobileView(context) ? 10 : 18.0),
+                      EdgeInsets.all(Utils.isMobileView(context) ? 10 : 18.0),
                   child: InkWell(
                     hoverColor: Colors.transparent,
                     mouseCursor: SystemMouseCursors.none,
@@ -94,8 +93,14 @@ class _HomePageState extends State<HomePage> {
                       child: AnimatedContainer(
                         height: uiModel.isLogoHovering ? 60 : 50,
                         duration: const Duration(milliseconds: 200),
-                        child: Image.asset(
-                          "images/logo.png",
+                        child: ImageRenderer(
+                          alt: "Sahdeep Singh - Logo",
+                          link: "assets/images/logo.png",
+                          child: Image.asset(
+                            "images/logo.png",
+                            cacheWidth: uiModel.isLogoHovering ? 180 : 150,
+                            cacheHeight: uiModel.isLogoHovering ? 60 : 50,
+                          ),
                         ),
                       ),
                     ),
@@ -106,7 +111,7 @@ class _HomePageState extends State<HomePage> {
                 alignment: Alignment.topRight,
                 child: Padding(
                   padding:
-                  EdgeInsets.all(Utils.isMobileView(context) ? 10 : 15.0),
+                      EdgeInsets.all(Utils.isMobileView(context) ? 10 : 15.0),
                   child: HoverableButton(
                     width: 70,
                     height: 70,
@@ -186,35 +191,35 @@ class _HomePageState extends State<HomePage> {
                 child: Utils.isMobileView(context)
                     ? SizedBox()
                     : Padding(
-                    padding: const EdgeInsets.all(28.0),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text(
-                          "© Sahdeep Singh, ",
-                          style:
-                          TextStyle(color: Colors.white, fontSize: 17),
-                        ),
-                        Text(
-                          "Build with ❤ and ",
-                          style:
-                          TextStyle(color: Colors.white, fontSize: 17),
-                        ),
-                        HoverableButton(
-                          height: 30,
-                          width: 70,
-                          onPressed: () {
-                            Utils.launchURL(PersonalData.flutterURL);
-                          },
-                          child: Text(
-                            "Flutter",
-                            style: TextStyle(
-                                color: Colors.white, fontSize: 17),
-                          ),
-                        )
-                      ],
-                    )),
+                        padding: const EdgeInsets.all(28.0),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text(
+                              "© Sahdeep Singh, ",
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 17),
+                            ),
+                            Text(
+                              "Build with ❤ and ",
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 17),
+                            ),
+                            HoverableButton(
+                              height: 30,
+                              width: 70,
+                              onPressed: () {
+                                Utils.launchURL(PersonalData.flutterURL);
+                              },
+                              child: Text(
+                                "Flutter",
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 17),
+                              ),
+                            )
+                          ],
+                        )),
               )
             ],
           ),
